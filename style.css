@@ -49,7 +49,7 @@ body > .extent{ position:absolute; } #content > td > .extent{ position:relative;
  * search                       *
  ********************************/
 #search span{ display:block; padding:.8em; margin:.5em 0 0 .5em; border:1px solid #aaa; background:#fff; border-radius:2px; }
-#search span input{ font-size:1.5em; width:100%; border:none; }
+#search span input{ font-size:1.5em; width:100%; border:none; outline:none; }
 
 /********************************
  * map                          *
@@ -68,4 +68,4 @@ body > .extent{ position:absolute; } #content > td > .extent{ position:relative;
 /****************************************************************
  * footer                                                       *
  ****************************************************************/
-footer{ background:#555; color:rgba(255,255,255,.6); }
+#footer{ background:#555; color:rgba(255,255,255,.6); }
