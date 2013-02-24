@@ -1,7 +1,7 @@
 /****************************************************************
  * general                                                      *
  ****************************************************************/
- html, body{ font-size:10px; margin:0; padding:0; overflow:hidden; font-family:Tahoma,sans-serif; background:#888; webkit-font-smoothing:antialiased; }
+html, body{ font-size:10px; margin:0; padding:0; overflow:hidden; font-family:Tahoma,sans-serif; background:#888; webkit-font-smoothing:antialiased; }
 a, input[type="button"], label{ cursor:pointer; text-decoration:none; }
 
 /****************************************************************
@@ -59,11 +59,20 @@ body > .extent{ position:absolute; } #content > td > .extent{ position:relative;
 /********************************
  * results                      *
  ********************************/
-#results h2{ font-size:3em; margin:.2em 0; font-family:Georgia,serif; color:#555; font-weight:normal; }
+#results h2{ font-size:3em; margin:.2em 0; font-family:Georgia,serif; color:#555; font-weight:normal; text-shadow:-1px -1px 2px #fff; }
 
 /********************************
  * sidebar                      *
  ********************************/
+#sidebar{ padding-top:0; }
+#papers{ padding:.5em 0; background:#fff; border:1px solid rgba(0,0,0,.2); box-shadow:0 0 .5em rgba(0,0,0,.1); border-radius:.4em; }
+	#papers > a{ display:block; position:relative; font-size:1.5em; padding:.5em; border-style:solid; border-width:1px 0 0; border-color:#aaa; transition:background .1s; }
+	#papers > a:first-child{ border-top-color:transparent; } #papers > a:last-child{ border-bottom-width:1px; border-bottom-color:transparent; }
+	#papers > a:hover{ background:#eee; border-width:1px 0; border-color:#ccc; }
+	#papers > a:hover + a{ border-top:none; }
+		#papers h3{ margin:0; color:rgba(0,0,0,.7); font-weight:normal; }
+		#papers span{ position:absolute; right:.5em; top:.5em; }
+		#papers p{ margin:0; }
 
 /****************************************************************
  * footer                                                       *
