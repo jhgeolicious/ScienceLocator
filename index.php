@@ -3,8 +3,14 @@
 <head>
 	<title>Science Locator</title>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="shortcut icon" href="pic/favicon.png" type="image/ico">
+
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+	<!--[if lte IE 8]>
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.ie.css" />
+	<![endif]-->
+
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<table class="extent"><tbody>
@@ -23,7 +29,7 @@
 					<td id="results"><h2>Search Results</h2></td>
 				</tr>
 				<tr class="fill">
-					<td id="map">map</td>
+					<td><div id="map"></div></td>
 					<td id="sidebar">
 						<div id="papers">
 							<a><h3>Title of the paper</h3><span>01/01/2000</span><p>Description</p></a>
@@ -35,7 +41,10 @@
 				</tr>
 			</tbody></table>
 		</td></tr>
-		<tr id="footer" class="variable"><td colspan="2">This is an early design draft of http://sciencelocator.com created by Danijar Hafner.</td></tr>
+		<tr id="footer" class="variable"><td colspan="2">This is an early prototype lacking final functionality of http://sciencelocator.com created by Danijar Hafner.</td></tr>
 	</tbody></table>
+
+	<script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+	<script src="script.js"></script>
 </body>
 </html>
