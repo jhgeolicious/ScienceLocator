@@ -32,10 +32,8 @@
 					<td><div id="map"></div></td>
 					<td id="sidebar">
 						<div id="papers">
-							<a><h3>Title of the paper</h3><span>01/01/2000</span><p>Description</p></a>
-							<a><h3>Title of the paper</h3><span>01/01/2000</span><p>Description</p></a>
-							<a><h3>Title of the paper</h3><span>01/01/2000</span><p>Description</p></a>
-							<a><h3>Title of the paper</h3><span>01/01/2000</span><p>Description</p></a>
+							<!--a><h3>Title of the paper</h3><span>01/01/2000</span><p>Description</p></a-->
+							<?php include('script.php'); ?>
 						</div>
 					</td>
 				</tr>
