@@ -1,0 +1,45 @@
+/****************************************************************
+ * general                                                      *
+ ****************************************************************/
+html, body{ font-size:10px; margin:0; padding:0; font-family:Arial,sans-serif; background:url("pic/header_background.png") repeat-x; }
+.clear{ clear:both; }
+
+/****************************************************************
+ * header                                                       *
+ ****************************************************************/
+#header{ background:#23629f; min-height:6em; cursor:default; -moz-user-select:none; }
+#header #logo{ float:left; font-size:2.5em; margin:.7em 0 0 1em; }
+#header #logo a{ display:block; padding:.5em 1em; color:#fff; font-weight:normal; text-decoration:none; text-shadow:0 0 1px #000; }
+#header #slogan{ float:left; font-size:1.7em; margin:2.2em 0 0; font-family:Georgia,serif; font-weight:normal; font-style:italic; color:#ddd; }
+#header #menu{ float:right; margin:3em 5em 0 0; padding:0; }
+#header #menu li{ display:inline-block; padding:0 0 1em; }
+#header #menu li.selected{ background:url("pic/menu_selected.png") no-repeat center bottom; }
+#header #menu li a{ display:block; font-size:1.5em; padding:.5em .75em; color:#fff; text-decoration:none; }
+#header #menu li.selected a{ color:#7cacd5; }
+
+/****************************************************************
+ * content                                                      *
+ ****************************************************************/
+#content{ position:relative; margin:0 3em 0; padding:2.6em 0 0; border-radius:1em 1em 0 0; background:#fff; min-height:45em; }
+#content #middle{ margin-left: -1px; background:url("pic/content_border.png") no-repeat left  top; }
+#content #side  { margin-right:-1px; background:url("pic/content_border.png") no-repeat right top; }
+
+/****************************************************************
+ * map                                                          *
+ ****************************************************************/
+#middle{ float:left; width:62%; } #middle > div{ margin:2em 1em 0 2em; }
+#map{ height:700px; border-radius:.5em; border:1px solid #aaa; background:#eee; }
+
+/****************************************************************
+ * side                                                         *
+ ****************************************************************/
+#side{ float:right; width:38%; } #side > div{ margin:2em 2em 0 1em; overflow:hidden; }
+#side > div.scroll{ padding-right:1.75em; } #side:hover > div.scroll{ overflow-y:scroll; padding-right:0; } /* add .scroll class in javascript */
+#side h2{ font-size:2.3em; font-family:Georgia,serif; font-weight:normal; color:#555; margin:1em 0 .5em; } #side h2:first-child{ margin-top:0; }
+#side .button{ border:1px solid #aaa; border-radius:.5em; padding:.5em; background:#ddd; }
+#side .search{ border:1px solid #aaa; border-radius:.5em; padding:.5em; background:#ddd; }
+#side #results{ list-style:none; padding:0; }
+#side #results li{ font-size:1.5em; }
+#side #results li a{ display:block; padding:.5em 1em; border:1px solid #aaa; border-bottom-width:0; background:#ddd; }
+#side #results li:first-child a{ border-radius:.5em .5em 0 0; }
+#side #results li:last-child a{ border-radius:0 0 .5em .5em; border-bottom-width:1px; }
