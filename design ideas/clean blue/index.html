@@ -19,17 +19,20 @@
 	</div>
 	<div id="content">
 		<div id="side"><div>
-			<h2>Draw an area on the map</h2>
-			<div class="button">
-				<input type="button" value="Define Area">
-				<p>Click on the map to define the corners of a polygon. The search results will be filtered by that area.<p>
+			<h2>1. Draw an area on the map</h2>
+			<div id="area">
+				<span><input type="button" class="button" value="Define Area"></span>
+				<p>First, click the button above. Then click on the map to define the corners of a polygon. The search results will be filtered by that area.<p>
 			</div>
-			<h2>Enter the keywords you look for</h2>
-			<div class="search">
-				<input type="text" placeholder=" Search for..." value=""><input type="button" value="Find Results">
+			<h2>2. Enter the keywords you look for</h2>
+			<div id="search">
+				<form method="post">
+					<input type="button" class="button" value="Find Results">
+					<span><input type="text" placeholder=" Type here..." value="" /></span>
+				</form>
 				<p>Examples are <i>lake, tokio, topology</i>. You might leave this blank.</p>
 			</div>
-			<h2>Results on the map and below</h2>
+			<h2>3. Results on the map and below</h2>
 			<ul id="results">
 				<li><a href="/">Search result one</a></li>
 				<li><a href="/">Search result two</a></li>
