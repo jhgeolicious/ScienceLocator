@@ -25,21 +25,31 @@ body{ font-size:10px; margin:0; padding:0; font-family:Arial,sans-serif; backgro
 /****************************************************************
  * content                                                      *
  ****************************************************************/
-#content{ position:relative; margin:0 3em 0; padding:2.6em 0 0; border-radius:1em 1em 0 0; background:#fff; min-height:45em; }
-#content #middle{ margin-left: -1px; background:url("pic/content_border.png") no-repeat left  top; }
-#content #side  { margin-right:-1px; background:url("pic/content_border.png") no-repeat right top; }
+#content{ position:relative; margin:0 3em 0; padding:2.6em 0 0; border-radius:1em 1em 0 0; background:#fff; }
+#content #middle{ margin-left: -1px; background:url("pic/content_border.png") no-repeat left  top; min-height:50px; }
+#content #side  { margin-right:-1px; background:url("pic/content_border.png") no-repeat right top; min-height:50px; }
+
+/****************************************************************
+ * middle                                                       *
+ ****************************************************************/
+#middle{ float:left; width:62%; position:relative; }
+#middle > div{ position:fixed; left:0; top:12em; width:62%; }
+#middle > div > div{ margin:2em 2em 0 5em; }
 
 /****************************************************************
  * map                                                          *
  ****************************************************************/
-#middle{ float:left; width:62%; } #middle > div{ margin:2em 1em 0 2em; }
 #map{ height:700px; border-radius:.5em; border:1px solid #bbb; background:#eee; }
+
+/****************************************************************
+ * footer                                                       *
+ ****************************************************************/
+#footer{ font-size:1.3em; margin:1em 0 0; }
 
 /****************************************************************
  * side                                                         *
  ****************************************************************/
 #side{ float:right; width:38%; } #side > div{ margin:2em 2em 0 1em; overflow:hidden; }
-#side > div.scroll{ padding-right:1.75em; } #side:hover > div.scroll{ overflow-y:scroll; padding-right:0; } /* add .scroll class in javascript */
 #side h2{ font-size:2.3em; font-family:Georgia,serif; font-weight:normal; color:#555; margin:1em 0 .5em; } #side h2:first-child{ margin-top:0; }
 
 #side #area{ border:1px solid #bbb; border-radius:.5em; padding:.5em; background:#eee; }
@@ -48,10 +58,9 @@ body{ font-size:10px; margin:0; padding:0; font-family:Arial,sans-serif; backgro
 #side #area p{ font-size:1.2em; margin:.2em 1em .6em; color:#888; }
 
 #side #search{ border:1px solid #bbb; border-radius:.5em; padding:1em; background:#eee; }
-#side #search form{ overflow:hidden; padding-bottom:.3em; }
-#side #search form span{ display:block; overflow:hidden; font-size:1.5em; padding:.5em; background:#fff; border-radius:.3em; border:1px solid #aaa; }
-#side #search form input[type="text"]{ width:100%; border:none; }
-#side #search form input[type="button"]{ float:right; margin:0 0 0 .5em; }
+#side #search span{ display:block; overflow:hidden; font-size:1.5em; padding:.5em; background:#fff; border-radius:.3em; border:1px solid #aaa; }
+#side #search input[type="text"]{ width:100%; border:none; }
+#side #search input[type="button"]{ float:right; margin:0 0 0 .5em; }
 #side #search p{ font-size:1.2em; margin:.2em 1em .6em; color:#888; }
 
 #side #results{ list-style:none; padding:0; }

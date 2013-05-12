@@ -44,8 +44,6 @@ $features = array();
 
 while ($row = pg_fetch_array($result))
 {
-	$json = json_decode($row[5], true);
-
 	$properties = array(
 		'id'          => intval($row[0]),
 		'title'       => $row[1],
@@ -54,13 +52,11 @@ while ($row = pg_fetch_array($result))
 		'description' => $row[4],
 	);
 
-	$geometry = array(
-		'type'        => $json['type'],
-		'coordinates' => $json['coordinates'],
-		'properties'  => $properties,
+	$features[] = array(
+		'type'       => 'Feature',
+		'geometry'   => json_decode($row[5], true),
+		'properties' => $properties,
 	);
-
-	$features[] = array('type' => 'Feature', 'geometry' => $geometry);
 }
 pg_free_result($result);
 

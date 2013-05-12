@@ -9,7 +9,16 @@ $(document).ready(function(){
 
 	var terrain  = L.tileLayer('http://oatile1.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg').addTo(map);
 	
-	var polygons = L.geoJson().addTo(map);
+	var polygons = setup_geojson_layer().addTo(map);
+
+	function setup_geojson_layer()
+	{
+		return L.geoJson(null, {
+			onEachFeature: function(feature, layer){
+				layer.bindPopup(feature.properties.title);
+			},
+		});
+	}
 
 	function request(title, fulltext)
 	{
@@ -22,37 +31,34 @@ $(document).ready(function(){
 							fulltext : fulltext || '',
 						 },
 			cache      : false,
-
 			beforeSend : function(){
-							$('#papers').html('<a><h3>Wait for it...</h3></a>');
-						 },
-
-			success    : function(json){
-							clear_results();
-							display_results(json);
-						 },
-
-			error      : function(jqxhr){
-							$('#papers').html('<a><h3>The search request failed.</h3>' + '<p>' + jqxhr.responseText + '</p></a>');
-						 },
+				$('#papers').html('<a><h3>Wait for it...</h3></a>');
+			},
+			success : function(json){
+				clear_results();
+				display_results(json.features);
+			},
+			error : function(jqxhr){
+				$('#papers').html('<a><h3>The search request failed.</h3>' + '<p>' + jqxhr.responseText + '</p></a>');
+			},
 		});
 	}
 	request('paper title', 'full text search words');
 
-	function display_results(json)
+	function display_results(features)
 	{
-		polygons.addData(json);
+		polygons.addData(features);
 
-		for(var i = 0; i < json.features.length; ++i)
-			list_result(json.features[i].geometry.properties);
+		for(var i = 0; i < features.length; ++i)
+			list_result(features[i].properties);
 	}
 
-	function list_result(json)
+	function list_result(properties)
 	{
-		$('#papers').append('<a tag="' + (json['id']          || ''              ) + '">'
-		                  + '<h3>'     + (json['title']       || 'Untitled'      ) + '</h3>'
-		                  + '<span>'   + (json['date']        || 'date unknown'  ) + '</span>'
-		                  + '<p>'      + (json['description'] || 'no description') + '</p>'
+		$('#papers').append('<a tag="' + (properties.id          || ''              ) + '">'
+		                  + '<h3>'     + (properties.title       || 'Untitled'      ) + '</h3>'
+		                  + '<span>'   + (properties.date        || 'date unknown'  ) + '</span>'
+		                  + '<p>'      + (properties.description || 'no description') + '</p>'
 		                  + '</a>');
 	}
 
@@ -61,6 +67,6 @@ $(document).ready(function(){
 		$('#papers').html('');
 
 		map.removeLayer(polygons);
-		polygons = L.geoJson().addTo(map);
+		polygons = setup_geojson_layer().addTo(map);
 	}
 });
