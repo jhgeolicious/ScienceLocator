@@ -6,29 +6,38 @@ $(document).ready(function(){
 		maxBounds : [[180, -250], [-180, 250]],
 		//crs       : L.CRS.EPSG4326,
 	}).setView([0, 0], 0);
+
 	var terrain  = L.tileLayer('http://oatile1.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg').addTo(map);
+	
 	var polygons = L.geoJson().addTo(map);
 
-	function request(name)
+	function request(title, fulltext)
 	{
 		var request = $.ajax({
-			type     : 'POST',
-			url      : 'request.php',
-			dataType : 'json',
-			data     : { 'name' : name, },
-			cache    : false,
-		})
+			url        : 'request.php',
+			type       : 'POST',
+			dataType   : 'json',
+			data       : {
+							title    : title    || '',
+							fulltext : fulltext || '',
+						 },
+			cache      : false,
 
-		request.success(function(json){
-			clear_results();
-			display_results(json);
-		});
+			beforeSend : function(){
+							$('#papers').html('<a><h3>Wait for it...</h3></a>');
+						 },
 
-		request.fail(function(jqXHR, message){
-			alert( "The search request failed. " + message);
+			success    : function(json){
+							clear_results();
+							display_results(json);
+						 },
+
+			error      : function(jqxhr){
+							$('#papers').html('<a><h3>The search request failed.</h3>' + '<p>' + jqxhr.responseText + '</p></a>');
+						 },
 		});
 	}
-	request('search string');
+	request('paper title', 'full text search words');
 
 	function display_results(json)
 	{
