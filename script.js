@@ -21,7 +21,7 @@ $(document).ready(function(){
 
 		request.success(function(json){
 			clear_results();
-			add_results(json);
+			display_results(json);
 		});
 
 		request.fail(function(jqXHR, message){
@@ -30,17 +30,15 @@ $(document).ready(function(){
 	}
 	request('search string');
 
-	function add_results(json)
+	function display_results(json)
 	{
-		//layer = L.geoJson(json);
-		//layer.addTo(map);
 		polygons.addData(json);
 
-		for(var i = 0; i < json['features'].length; ++i)
-			add_result(json['features'][i]['properties']);
+		for(var i = 0; i < json.features.length; ++i)
+			list_result(json.features[i].geometry.properties);
 	}
 
-	function add_result(json)
+	function list_result(json)
 	{
 		$('#papers').append('<a tag="' + (json['id']          || ''              ) + '">'
 		                  + '<h3>'     + (json['title']       || 'Untitled'      ) + '</h3>'

@@ -1,40 +1,72 @@
 <?php
 
-/*
-
 // enable error reporting for development
-ini_set('display_errors',1);
-ini_set('display_startup_errors',1);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 error_reporting(-1);
 
 // input from javascript
 // $search_string = isset($_POST['name']) ? $_POST['name'] : '';
 
-// database query
 $db = pg_connect("host=localhost port=5432 dbname=postgistry user=postgres password=postgres") or die('Connection to database failed.');
-$query = pg_query($db, 'SELECT id, name, ST_AsGeoJSON(area) FROM tablename') or die('No query results from database.');
 
-// handle result
-$results = array();
-while ($row = pg_fetch_array($query))
+/*******************************************
+ * database query                          *
+ *******************************************/
+
+$query = "
+SELECT
+	id,
+	title,
+	to_char(date, 'MM/DD/YYYY') As date,
+	link,
+	description,
+	ST_AsGeoJSON(polygon)
+FROM tablename
+";
+
+$result = pg_query($db, $query) or die('No query results from database.');
+
+/*******************************************
+ * create GeoJSON object                   *
+ *******************************************/
+
+$features = array();
+
+while ($row = pg_fetch_array($result))
 {
-	$results[] = array(
-		'id'      => $row[0],
-		'title'   => $row[1],
-		'polygon' => $row[2],
+	$json = json_decode($row[5], true);
+
+	$properties = array(
+		'id'          => intval($row[0]),
+		'title'       => $row[1],
+		'date'        => $row[2],
+		'link'        => $row[3],
+		'description' => $row[4],
 	);
+
+	$geometry = array(
+		'type'        => $json['type'],
+		'coordinates' => $json['coordinates'],
+		'properties'  => $properties,
+	);
+
+	$features[] = array('type' => 'Feature', 'geometry' => $geometry);
 }
+pg_free_result($result);
 
-// encode output
-$json = json_encode($results) or die('There was an error encoding the results to JSON in the PHP script.');
-echo $json;
+$geojson = array('type' => 'FeatureCollection', 'features' => $features);
 
-// close database
-pg_free_result($query);
+/*******************************************
+ * encode output                           *
+ *******************************************/
+
+$output = json_encode($geojson) or die('There was an error encoding the results to JSON in the PHP script.');
+echo $output;
+
 pg_close($db);
 
-*/
-
+/*
 $db = pg_connect("host=localhost port=5432 dbname=postgistry user=postgres password=postgres") or die('Connection to database failed.');
 
 $result = pg_query($db,
@@ -59,3 +91,4 @@ $result = pg_query($db,
 echo pg_fetch_row($result)[0];
 pg_free_result($result);
 pg_close($db);
+*/
