@@ -1,7 +1,7 @@
 /****************************************************************
  * general                                                      *
  ****************************************************************/
-body{ font-size:10px; margin:0; padding:0; font-family:Arial,sans-serif; background:url("pic/header_background.png") repeat-x; overflow:scroll; overflow-x:hidden; }
+body{ font-size:10px; margin:0; padding:0; font-family:Arial,sans-serif; background:url("../pic/header_background.png") repeat-x; overflow:scroll; overflow-x:hidden; }
 *{ cursor:default; -moz-user-select:-moz-none; } a, input[type="button"]{ cursor:pointer; } input[type="text"]{ cursor:text; -moz-user-select:text; }
 .clear{ clear:both; }
 
@@ -19,7 +19,7 @@ body{ font-size:10px; margin:0; padding:0; font-family:Arial,sans-serif; backgro
 #header #slogan{ float:left; font-size:1.7em; margin:2.2em 0 0; font-family:Georgia,serif; font-weight:normal; font-style:italic; color:#ddd; }
 #header #menu{ float:right; margin:3em 5em 0 0; padding:0; }
 #header #menu li{ display:inline-block; padding:0 0 1em; }
-#header #menu li.selected{ background:url("pic/menu_selected.png") no-repeat center bottom; }
+#header #menu li.selected{ background:url("../pic/menu_selected.png") no-repeat center bottom; }
 #header #menu li a{ display:block; font-size:1.5em; padding:.5em .75em; color:#fff; text-decoration:none; }
 #header #menu li.selected a{ color:#7cacd5; }
 
@@ -27,8 +27,8 @@ body{ font-size:10px; margin:0; padding:0; font-family:Arial,sans-serif; backgro
  * content                                                      *
  ****************************************************************/
 #content{ position:relative; margin:0 3em 0; padding:2.6em 0 0; border-radius:1em 1em 0 0; background:#fff; }
-#content #middle{ margin-left: -1px; background:url("pic/content_border.png") no-repeat left  top; min-height:50px; }
-#content #side  { margin-right:-1px; background:url("pic/content_border.png") no-repeat right top; min-height:50px; }
+#content #middle{ margin-left: -1px; background:url("../pic/content_border.png") no-repeat left  top; min-height:50px; }
+#content #side  { margin-right:-1px; background:url("../pic/content_border.png") no-repeat right top; min-height:50px; }
 
 /****************************************************************
  * middle                                                       *
@@ -40,7 +40,7 @@ body{ font-size:10px; margin:0; padding:0; font-family:Arial,sans-serif; backgro
 /****************************************************************
  * ads                                                          *
  ****************************************************************/
-#ads{ height:10em; min-width:500px; margin:0 0 2em; border-radius:.5em; border:1px solid #ccc; background:url("pic/advertisement.png") #eee no-repeat center; display:none; /* display:block; */ opacity:0; }
+#ads{ height:10em; min-width:500px; margin:0 0 2em; border-radius:.5em; border:1px solid #ccc; background:url("../pic/advertisement.png") #eee no-repeat center; display:none; /* display:block; */ opacity:0; }
 
 /****************************************************************
  * map                                                          *

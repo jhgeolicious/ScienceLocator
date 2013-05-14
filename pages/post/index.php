@@ -1,4 +1,15 @@
-<div id="side"><div>
+<!DOCTYPE html>
+<html>
+<head>
+	<?php system_head(); ?>
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.css" />
+	<!--[if lte IE 8]>
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.ie.css" />
+	<![endif]-->
+</head>
+<body>
+	<?php system_body_start(); ?>
+	<div id="side"><div>
 	<h2>1. Draw an area on the map</h2>
 	<div id="area">
 		<p>Welcome to Science Locator! Post a research paper by clicking the button below.</p>
@@ -16,12 +27,14 @@
 			<br class="clear" />
 		</form>
 	</div>
-</div></div>
-<div id="middle"><div><div>
-	<div id="map"></div>
-	<div id="footer">Copyright © 2013 Science Locator. Early prototype by Danijar Hafner. <span style="color:#aaa;">Debug: <span id="debug"></span></span></div>
-</div></div></div>
-<br class="clear">
-
-<script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
-<script src="pages/search/script.js"></script>
+	</div></div>
+	<div id="middle"><div><div>
+		<div id="map"></div>
+		<div id="footer">Copyright © 2013 Science Locator. Early prototype by Danijar Hafner. <span style="color:#aaa;">Debug: <span id="debug"></span></span></div>
+	</div></div></div>
+	<br class="clear">
+	<?php system_body_end(); ?>
+	<script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
+	<script src="<?=$system_dir?>script.js"></script>
+</body>
+</html>
