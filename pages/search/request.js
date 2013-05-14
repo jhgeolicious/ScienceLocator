@@ -58,7 +58,7 @@ $(document).ready(function(){
 		                   + '</li>');
 	}
 
-	$('#search input[type="button"]').click(function(){
-		search_request($('#search input[type="text"]').val());
+	$('#keywords input[type="button"]').click(function(){
+		search_request($('#keywords input[type="text"]').val());
 	});
 });

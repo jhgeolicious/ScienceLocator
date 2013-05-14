@@ -12,8 +12,9 @@ if(isset($_GET['page']))
 else
 	$page = $config['home'];
 
-// load system
-include 'layout/index.php';
+// load layout
+$system_layout_dir = 'layout/' . $config['layout'] . '/';
+include $system_layout_dir . 'index.php';
 
 // securely include page
 if(in_array($page, $config['pages']))

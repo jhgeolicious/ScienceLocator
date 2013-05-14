@@ -6,7 +6,7 @@
 	<!--[if lte IE 8]>
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.ie.css" />
 	<![endif]-->
-	<link rel="stylesheet" type="text/css" href="<?=$system_dir?>/style.css">	
+	<link rel="stylesheet" type="text/css" href="<?=$system_dir?>style.css">	
 </head>
 <body>
 	<?php system_body_start(); ?>
