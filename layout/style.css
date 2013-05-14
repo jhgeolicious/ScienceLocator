@@ -40,7 +40,7 @@ body{ font-size:10px; margin:0; padding:0; font-family:Arial,sans-serif; backgro
 /****************************************************************
  * ads                                                          *
  ****************************************************************/
-#ads{ height:10em; margin:0 0 2em; border-radius:.5em; border:1px solid #ccc; background:#eee; display:none; /* display:block; */ opacity:0; background:url("pic/advertisement.png") #eee no-repeat center; }
+#ads{ height:10em; margin:0 0 2em; border-radius:.5em; border:1px solid #ccc; background:#eee no-repeat center; background-image:url("pic/advertisement.png"); display:none; /* display:block; */ opacity:0; }
 
 /****************************************************************
  * map                                                          *
@@ -72,8 +72,8 @@ body{ font-size:10px; margin:0; padding:0; font-family:Arial,sans-serif; backgro
 #side #results{ list-style:none; padding:0; margin:0 0 5em; }
 #side #results li{ font-size:1.5em; display:block; position:relative; padding:.5em 1em; border:1px solid #ccc; border-bottom-width:0; background:#eee; transition:background .1s; }
 #side #results li:hover{ background:#f8f8f8; border-color:#bbb; } #side #results li:hover + li{ border-top-color:#bbb; } #side #results li:last-child:hover{ border-bottom-color:#bbb; }
-#side #results li:first-child{ border-radius:.5em .5em 0 0; }
-#side #results li:last-child{ border-radius:0 0 .5em .5em; border-bottom-width:1px; }
+#side #results li:first-child{ border-top-left-radius:.5em; border-top-right-radius:.5em; }
+#side #results li:last-child{ border-bottom-width:1px; border-bottom-left-radius:.5em; border-bottom-right-radius:.5em; }
 #side #results li > h3{ margin:0; color:#606060; font-weight:normal; }
 #side #results li > a{ color:#23629f; text-decoration:none; }
 #side #results li > span{ position:absolute; right:.5em; top:.5em; color:#888; }
