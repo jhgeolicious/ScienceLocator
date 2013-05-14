@@ -3,7 +3,7 @@ $(document).ready(function(){
 	var map = L.map('map', {
 		minZoom   : 0,
 		maxZoom   : 11,
-		maxBounds : [[180, -250], [-180, 250]],
+		maxBounds : [[90, -180], [-90, 180]],
 		crs       : L.CRS.EPSG3857,
 	}).setView([0, 0], 0);
 
@@ -11,9 +11,16 @@ $(document).ready(function(){
 	
 	var polygons = L.geoJson(null, {
 		onEachFeature: function(feature, layer){
-			layer.bindPopup(feature.properties.title);
+			debug = feature.geometry.coordinates;
+			layer.bindPopup(feature.properties.title + '<br><span style="color:#aaa;">' + 'Debug: ' + debug + "</span>");
 		},
 	}).addTo(map);
+
+	map.on('mousemove', function(e){
+		var lng = L.Util.formatNum(e.latlng.lng, 5);
+		var lat = L.Util.formatNum(e.latlng.lat, 5);
+		$('#debug').html('Lng ' + lng + ' Lat ' + lat);
+	}, this);
 
 	function search_request(title)
 	{

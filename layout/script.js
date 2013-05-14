@@ -14,6 +14,7 @@ $(document).ready(function(){
 
 	function scroll()
 	{
+		// show ads
 		if($(document).scrollTop() > 100)
 		{
 			$('#middle > div').css('top', '0');
@@ -30,5 +31,10 @@ $(document).ready(function(){
 	}
 	$(document).scroll(scroll);
 	scroll();
+
+	// help selecting text areas
+	$('span').click(function(){
+		$(this).find('input[type="text"]').focus();
+	});
 
 });

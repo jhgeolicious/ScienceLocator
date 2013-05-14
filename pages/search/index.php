@@ -23,9 +23,9 @@
 	</ul>
 </div></div>
 <div id="middle"><div><div>
-	<div id="ads"></div>
+	<div id="ads">&nbsp;</div>
 	<div id="map"></div>
-	<div id="footer">Copyright © 2013 Science Locator. Early prototype by Danijar Hafner.</div>
+	<div id="footer">Copyright © 2013 Science Locator. Early prototype by Danijar Hafner. <span style="color:#aaa;">Debug: <span id="debug"></span></span></div>
 </div></div></div>
 <br class="clear">
 

@@ -40,7 +40,7 @@ body{ font-size:10px; margin:0; padding:0; font-family:Arial,sans-serif; backgro
 /****************************************************************
  * ads                                                          *
  ****************************************************************/
-#ads{ height:10em; margin:0 0 2em; border-radius:.5em; border:1px solid #ccc; background:#eee no-repeat center; background-image:url("pic/advertisement.png"); display:none; /* display:block; */ opacity:0; }
+#ads{ height:10em; min-width:500px; margin:0 0 2em; border-radius:.5em; border:1px solid #ccc; background:url("pic/advertisement.png") #eee no-repeat center; display:none; /* display:block; */ opacity:0; }
 
 /****************************************************************
  * map                                                          *
@@ -50,7 +50,7 @@ body{ font-size:10px; margin:0; padding:0; font-family:Arial,sans-serif; backgro
 /****************************************************************
  * footer                                                       *
  ****************************************************************/
-#footer{ font-size:1.3em; margin:1em 0 1.3em; }
+#footer{ font-size:1.3em; margin:1em 0 1.5em; }
 
 /****************************************************************
  * side                                                         *
@@ -64,8 +64,8 @@ body{ font-size:10px; margin:0; padding:0; font-family:Arial,sans-serif; backgro
 #side #area p{ font-size:1.2em; margin:.4em 1em; color:#888; }
 
 #side #search{ border:1px solid #ccc; border-radius:.5em; padding:1em; background:#eee; }
-#side #search span{ display:block; overflow:hidden; font-size:1.5em; padding:.5em; background:#fff; border-radius:.3em; border:1px solid #aaa; }
-#side #search input[type="text"]{ width:100%; border:none; }
+#side #search span{ display:block; overflow:hidden; font-size:1.5em; padding:.5em; background:#fff; border-radius:.3em; border:1px solid #aaa; /* cursor:text; */ }
+#side #search span input[type="text"]{ width:100%; border:none; }
 #side #search input[type="button"]{ float:right; margin:0 0 0 .5em; }
 #side #search p{ font-size:1.2em; margin:.2em 1em .6em; color:#888; }
 
@@ -77,4 +77,4 @@ body{ font-size:10px; margin:0; padding:0; font-family:Arial,sans-serif; backgro
 #side #results li > h3{ margin:0; color:#606060; font-weight:normal; }
 #side #results li > a{ color:#23629f; text-decoration:none; }
 #side #results li > span{ position:absolute; right:.5em; top:.5em; color:#888; }
-#side #results li > p{ margin:0; color:#888; }
+#side #results li > p{ margin:0; color:#888; margin:.2em 0; line-height:1.1em; }
