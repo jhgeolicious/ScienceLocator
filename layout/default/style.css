@@ -2,7 +2,7 @@
  * general                                                      *
  ****************************************************************/
 body{ font-size:10px; margin:0; padding:0; font-family:Arial,sans-serif; background:url("pic/header_background.png") repeat-x; overflow:scroll; overflow-x:hidden; }
-*{ cursor:default; -moz-user-select:-moz-none; } a, input[type="button"]{ cursor:pointer; } input[type="text"]{ cursor:text; -moz-user-select:text; }
+*{ cursor:default; -moz-user-select:-moz-none; } a, input[type="button"]{ cursor:pointer !important; } input[type="text"]{ cursor:text !important; -moz-user-select:text; }
 .clear{ clear:both; }
 
 /****************************************************************
