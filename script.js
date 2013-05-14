@@ -4,23 +4,18 @@ $(document).ready(function(){
 		minZoom   : 0,
 		maxZoom   : 11,
 		maxBounds : [[180, -250], [-180, 250]],
-		//crs       : L.CRS.EPSG4326,
+		crs       : L.CRS.EPSG3857,
 	}).setView([0, 0], 0);
 
 	var terrain  = L.tileLayer('http://oatile1.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg').addTo(map);
 	
-	var polygons = setup_geojson_layer().addTo(map);
+	var polygons = L.geoJson(null, {
+		onEachFeature: function(feature, layer){
+			layer.bindPopup(feature.properties.title);
+		},
+	}).addTo(map);
 
-	function setup_geojson_layer()
-	{
-		return L.geoJson(null, {
-			onEachFeature: function(feature, layer){
-				layer.bindPopup(feature.properties.title);
-			},
-		});
-	}
-
-	function request(title, fulltext)
+	function search_request(title, fulltext)
 	{
 		var request = $.ajax({
 			url        : 'request.php',
@@ -33,24 +28,18 @@ $(document).ready(function(){
 			cache      : false,
 			beforeSend : function(){
 				$('#papers').html('<a><h3>Wait for it...</h3></a>');
+				polygons.clearLayers();
 			},
 			success : function(json){
-				clear_results();
-				display_results(json.features);
+				$('#papers').html('');
+				for(var i = 0; i < json.features.length; ++i)
+					list_result(json.features[i].properties);
+				polygons.addData(json.features);
 			},
 			error : function(jqxhr){
 				$('#papers').html('<a><h3>The search request failed.</h3>' + '<p>' + jqxhr.responseText + '</p></a>');
 			},
 		});
-	}
-	request('paper title', 'full text search words');
-
-	function display_results(features)
-	{
-		polygons.addData(features);
-
-		for(var i = 0; i < features.length; ++i)
-			list_result(features[i].properties);
 	}
 
 	function list_result(properties)
@@ -62,11 +51,5 @@ $(document).ready(function(){
 		                  + '</a>');
 	}
 
-	function clear_results()
-	{
-		$('#papers').html('');
-
-		map.removeLayer(polygons);
-		polygons = setup_geojson_layer().addTo(map);
-	}
+	search_request('paper title', 'full text search words');
 });

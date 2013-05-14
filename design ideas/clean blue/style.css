@@ -1,18 +1,19 @@
 /****************************************************************
  * general                                                      *
  ****************************************************************/
-body{ font-size:10px; margin:0; padding:0; font-family:Arial,sans-serif; background:url("pic/header_background.png") repeat-x; }
+body{ font-size:10px; margin:0; padding:0; font-family:Arial,sans-serif; background:url("pic/header_background.png") repeat-x; overflow:scroll; overflow-x:hidden; }
+*{ cursor:default; -moz-user-select:-moz-none; } a, input[type="button"]{ cursor:pointer; } input[type="text"]{ cursor:text; -moz-user-select:text; }
 .clear{ clear:both; }
 
 /****************************************************************
  * shared                                                       *
  ****************************************************************/
-.button{ font-size:1.425em; padding:.5em; color:#666; text-shadow:0 1px 0 #fff; background:#f5f5f5; background-image:linear-gradient(#FAFAFA, #EAEAEA); font-family:Helvetica,Arial,sans-serif; font-weight:700; border-radius:.3em; border:1px solid #aaa; box-shadow:0 .1em .1em rgba(0,0,0,.1); cursor:pointer; }
+.button{ font-size:1.425em; padding:.5em; color:#666; text-shadow:0 1px 0 #fff; background:#f5f5f5; background-image:linear-gradient(#FAFAFA, #EAEAEA); font-family:Helvetica,Arial,sans-serif; font-weight:700; border-radius:.3em; border:1px solid #aaa; box-shadow:0 .1em .1em rgba(0,0,0,.1); }
 
  /****************************************************************
  * header                                                       *
  ****************************************************************/
-#header{ cursor:default; margin:2em 0 0; -moz-user-select:none; }
+#header{ margin:2em 0 0; }
 #header #logo{ float:left; font-size:2.5em; margin:.7em 0 0 1em; }
 #header #logo a{ display:block; padding:.5em 1em; color:#fff; font-weight:normal; text-decoration:none; text-shadow:0 0 1px #000; }
 #header #slogan{ float:left; font-size:1.7em; margin:2.2em 0 0; font-family:Georgia,serif; font-weight:normal; font-style:italic; color:#ddd; }
@@ -33,18 +34,23 @@ body{ font-size:10px; margin:0; padding:0; font-family:Arial,sans-serif; backgro
  * middle                                                       *
  ****************************************************************/
 #middle{ float:left; width:62%; position:relative; }
-#middle > div{ position:fixed; left:0; top:12em; width:62%; }
-#middle > div > div{ margin:2em 2em 0 5em; }
+#middle > div{ position:fixed; left:0; top:12em; /* top:0em; */ width:62%; }
+#middle > div > div{ margin:2em 2em 0 5em; overflow:hidden; }
+
+/****************************************************************
+ * ads                                                          *
+ ****************************************************************/
+#ads{ height:10em; margin:0 0 2em; border-radius:.5em; border:1px solid #ccc; background:#eee; display:none; /* display:block; */ opacity:0; background:url("pic/advertisement.png") #eee no-repeat center; }
 
 /****************************************************************
  * map                                                          *
  ****************************************************************/
-#map{ height:700px; border-radius:.5em; border:1px solid #bbb; background:#eee; }
+#map{ height:500px; border-radius:.5em; margin:2px 0 0; border:1px solid #ccc; background:#eee; }
 
 /****************************************************************
  * footer                                                       *
  ****************************************************************/
-#footer{ font-size:1.3em; margin:1em 0 0; }
+#footer{ font-size:1.3em; margin:1em 0 1.3em; }
 
 /****************************************************************
  * side                                                         *
@@ -52,19 +58,23 @@ body{ font-size:10px; margin:0; padding:0; font-family:Arial,sans-serif; backgro
 #side{ float:right; width:38%; } #side > div{ margin:2em 2em 0 1em; overflow:hidden; }
 #side h2{ font-size:2.3em; font-family:Georgia,serif; font-weight:normal; color:#555; margin:1em 0 .5em; } #side h2:first-child{ margin-top:0; }
 
-#side #area{ border:1px solid #bbb; border-radius:.5em; padding:.5em; background:#eee; }
+#side #area{ border:1px solid #ccc; border-radius:.5em; padding:.5em; background:#eee; }
 #side #area span{ display:block; text-align:center; }
 #side #area input[type="button"]{ margin:.5em 0; }
-#side #area p{ font-size:1.2em; margin:.2em 1em .6em; color:#888; }
+#side #area p{ font-size:1.2em; margin:.4em 1em; color:#888; }
 
-#side #search{ border:1px solid #bbb; border-radius:.5em; padding:1em; background:#eee; }
+#side #search{ border:1px solid #ccc; border-radius:.5em; padding:1em; background:#eee; }
 #side #search span{ display:block; overflow:hidden; font-size:1.5em; padding:.5em; background:#fff; border-radius:.3em; border:1px solid #aaa; }
 #side #search input[type="text"]{ width:100%; border:none; }
 #side #search input[type="button"]{ float:right; margin:0 0 0 .5em; }
 #side #search p{ font-size:1.2em; margin:.2em 1em .6em; color:#888; }
 
-#side #results{ list-style:none; padding:0; }
-#side #results li{ font-size:1.5em; }
-#side #results li a{ display:block; padding:.5em 1em; border:1px solid #bbb; border-bottom-width:0; background:#eee; }
-#side #results li:first-child a{ border-radius:.5em .5em 0 0; }
-#side #results li:last-child a{ border-radius:0 0 .5em .5em; border-bottom-width:1px; }
+#side #results{ list-style:none; padding:0; margin:0 0 5em; }
+#side #results li{ font-size:1.5em; display:block; position:relative; padding:.5em 1em; border:1px solid #ccc; border-bottom-width:0; background:#eee; transition:background .1s; }
+#side #results li:hover{ background:#f8f8f8; border-color:#bbb; } #side #results li:hover + li{ border-top-color:#bbb; } #side #results li:last-child:hover{ border-bottom-color:#bbb; }
+#side #results li:first-child{ border-radius:.5em .5em 0 0; }
+#side #results li:last-child{ border-radius:0 0 .5em .5em; border-bottom-width:1px; }
+#side #results li > h3{ margin:0; color:#606060; font-weight:normal; }
+#side #results li > a{ color:#23629f; text-decoration:none; }
+#side #results li > span{ position:absolute; right:.5em; top:.5em; color:#888; }
+#side #results li > p{ margin:0; color:#888; }
