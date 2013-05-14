@@ -1,0 +1,64 @@
+
+/****************************************************************
+ * content                                                      *
+ ****************************************************************/
+#content #middle{ margin-left: -1px; background:url("pic/content_border.png") no-repeat left  top; min-height:50px; }
+#content #side  { margin-right:-1px; background:url("pic/content_border.png") no-repeat right top; min-height:50px; }
+
+/****************************************************************
+ * middle                                                       *
+ ****************************************************************/
+#middle{ float:left; width:62%; position:relative; }
+#middle > div{ position:fixed; left:0; top:12em; /* top:0em; */ width:62%; }
+#middle > div > div{ margin:2em 2em 0 5em; overflow:hidden; }
+
+/****************************************************************
+ * ads                                                          *
+ ****************************************************************/
+#ads{ height:10em; min-width:500px; margin:0 0 2em; border-radius:.5em; border:1px solid #ccc; background:url("pic/advertisement.png") #eee no-repeat center; display:none; /* display:block; */ opacity:0; }
+
+/****************************************************************
+ * map                                                          *
+ ****************************************************************/
+#map{ height:500px; border-radius:.5em; margin:2px 0 0; border:1px solid #ccc; background:#eee; }
+
+/****************************************************************
+ * footer                                                       *
+ ****************************************************************/
+#footer{ font-size:1.3em; margin:1em 0 1.5em; }
+
+/****************************************************************
+ * side                                                         *
+ ****************************************************************/
+#side{ float:right; width:38%; } #side > div{ margin:2em 2em 0 1em; overflow:hidden; }
+#side h2{ font-size:2.3em; font-family:Georgia,serif; font-weight:normal; color:#555; margin:1em 0 .5em; } #side h2:first-child{ margin-top:0; }
+
+/****************************************************************
+ * 1. area                                                      *
+ ****************************************************************/
+#side #area{ border:1px solid #ccc; border-radius:.5em; padding:.5em; background:#eee; }
+#side #area span{ display:block; text-align:center; }
+#side #area input[type="button"]{ margin:.5em 0; }
+#side #area p{ font-size:1.2em; margin:.4em 1em; color:#888; }
+
+/****************************************************************
+ * 2. keywords                                                  *
+ ****************************************************************/
+#side #keywords{ border:1px solid #ccc; border-radius:.5em; padding:1em; background:#eee; }
+#side #keywords span{ display:block; overflow:hidden; font-size:1.5em; padding:.5em; background:#fff; border-radius:.3em; border:1px solid #aaa; /* cursor:text; */ }
+#side #keywords span input[type="text"]{ width:100%; border:none; }
+#side #keywords input[type="button"]{ float:right; margin:0 0 0 .5em; }
+#side #keywords p{ font-size:1.2em; margin:.2em 1em .6em; color:#888; }
+
+/****************************************************************
+ * 3. results                                                   *
+ ****************************************************************/
+#side #results{ list-style:none; padding:0; margin:0 0 5em; }
+#side #results li{ font-size:1.5em; display:block; position:relative; padding:.5em 1em; border:1px solid #ccc; border-bottom-width:0; background:#eee; transition:background .1s; }
+#side #results li:hover{ background:#f8f8f8; border-color:#bbb; } #side #results li:hover + li{ border-top-color:#bbb; } #side #results li:last-child:hover{ border-bottom-color:#bbb; }
+#side #results li:first-child{ border-top-left-radius:.5em; border-top-right-radius:.5em; }
+#side #results li:last-child{ border-bottom-width:1px; border-bottom-left-radius:.5em; border-bottom-right-radius:.5em; }
+#side #results li > h3{ margin:0; color:#606060; font-weight:normal; }
+#side #results li > a{ color:#23629f; text-decoration:none; }
+#side #results li > span{ position:absolute; right:.5em; top:.5em; color:#888; }
+#side #results li > p{ margin:0; color:#888; margin:.2em 0; line-height:1.1em; }

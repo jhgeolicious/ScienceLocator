@@ -6,7 +6,7 @@ function system_head()
 	<title><?php echo $config['title']; ?></title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<link rel="shortcut icon" href="<?=$config['layout']?>/pic/favicon.png" type="image/ico">
-	<link rel="stylesheet" type="text/css" href="<?=$config['layout']?>/style/style.css">	
+	<link rel="stylesheet" type="text/css" href="<?=$config['layout']?>/style.css">	
 <?php }
 
 function system_body_start()
@@ -29,8 +29,6 @@ function system_body_start()
 
 function system_body_end()
 { ?>
-	<?php global $config; ?>
 	</div>
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-	<script src="<?=$config['layout']?>/script/script.js"></script>
 <?php }

@@ -6,6 +6,7 @@
 	<!--[if lte IE 8]>
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.ie.css" />
 	<![endif]-->
+	<link rel="stylesheet" type="text/css" href="<?=$system_dir?>/style.css">	
 </head>
 <body>
 	<?php system_body_start(); ?>
@@ -17,7 +18,7 @@
 			<p>Then click on points on the map to define the corners of a polygon. The search results will be filtered by that area.<p>
 		</div>
 		<h2>2. Enter keywords you look for</h2>
-		<div id="search">
+		<div id="keywords">
 			<form method="post">
 				<input type="button" class="button" value="Find Results">
 				<span><input type="text" placeholder=" Type here..." value="" /></span>
@@ -41,6 +42,7 @@
 	<br class="clear">
 	<?php system_body_end(); ?>
 	<script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
-	<script src="<?=$system_dir?>script.js"></script>
+	<script src="<?=$system_dir?>layout.js"></script>
+	<script src="<?=$system_dir?>request.js"></script>
 </body>
 </html>

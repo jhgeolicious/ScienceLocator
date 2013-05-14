@@ -1,0 +1,29 @@
+/****************************************************************
+ * general                                                      *
+ ****************************************************************/
+body{ font-size:10px; margin:0; padding:0; font-family:Arial,sans-serif; background:url("pic/header_background.png") repeat-x; overflow:scroll; overflow-x:hidden; }
+*{ cursor:default; -moz-user-select:-moz-none; } a, input[type="button"]{ cursor:pointer; } input[type="text"]{ cursor:text; -moz-user-select:text; }
+.clear{ clear:both; }
+
+/****************************************************************
+ * shared                                                       *
+ ****************************************************************/
+.button{ font-size:1.425em; padding:.5em; color:#666; text-shadow:0 1px 0 #fff; background:#f5f5f5; background-image:linear-gradient(#FAFAFA, #EAEAEA); font-family:Helvetica,Arial,sans-serif; font-weight:700; border-radius:.3em; border:1px solid #aaa; box-shadow:0 .1em .1em rgba(0,0,0,.1); }
+
+ /****************************************************************
+ * header                                                       *
+ ****************************************************************/
+#header{ margin:2em 0 0; }
+#header #logo{ float:left; font-size:2.5em; margin:.7em 0 0 1em; }
+#header #logo a{ display:block; padding:.5em 1em; color:#fff; font-weight:normal; text-decoration:none; text-shadow:0 0 1px #000; }
+#header #slogan{ float:left; font-size:1.7em; margin:2.2em 0 0; font-family:Georgia,serif; font-weight:normal; font-style:italic; color:#ddd; }
+#header #menu{ float:right; margin:3em 5em 0 0; padding:0; }
+#header #menu li{ display:inline-block; padding:0 0 1em; }
+#header #menu li.selected{ background:url("pic/menu_selected.png") no-repeat center bottom; }
+#header #menu li a{ display:block; font-size:1.5em; padding:.5em .75em; color:#fff; text-decoration:none; }
+#header #menu li.selected a{ color:#7cacd5; }
+
+/****************************************************************
+ * content                                                      *
+ ****************************************************************/
+#content{ position:relative; margin:0 3em 0; padding:2.6em 0 0; border-radius:1em 1em 0 0; background:#fff; }
