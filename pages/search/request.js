@@ -98,7 +98,7 @@ $(document).ready(function(){
 			dataType   : 'json',
 			data       : {
 							title  : title  || '',
-							points : points || '',
+							points : (points ? lnglat_to_array(points) : ''),
 						 },
 			cache      : false,
 			beforeSend : function(){
@@ -119,8 +119,18 @@ $(document).ready(function(){
 	}
 
 	$('#keywords input[type="button"]').click(function(){
-		search_request($('#keywords input[type="text"]').val());
+		search_request($('#keywords input[type="text"]').val(), points);
 	});
+
+	function lnglat_to_array(lnglat)
+	{
+		array = [];
+		for (i = 0; i < lnglat.length; ++i)
+		{
+			array.push([lnglat[i].lng, lnglat[i].lat]);
+		}
+		return array;
+	}
 
 	/****************************************************************
 	 * display results                                              *

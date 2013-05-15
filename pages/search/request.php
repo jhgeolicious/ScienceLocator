@@ -14,10 +14,14 @@ $db = pg_connect("host=localhost port=5432 dbname=postgistry user=postgres passw
  * fetch input from JavaScript             *
  *******************************************/
 
-$search = array(
-	'title'    => isset($_POST['title'])    ? $_POST['title']    : '',
-	'fulltext' => isset($_POST['fulltext']) ? $_POST['fulltext'] : '',
-);
+$search = array();
+
+if(isset($_POST['title']))
+	$search['title'] = $_POST['title'];
+
+if(isset($_POST['points']))
+	foreach($_POST['points'] AS $key => $value)
+		$search['points'][$key] = floatval($value);
 
 /*******************************************
  * database query                          *

@@ -57,7 +57,7 @@
 #side #results li:hover{ background:#f8f8f8; border-color:#bbb; } #side #results li:hover + li{ border-top-color:#bbb; } #side #results li:last-child:hover{ border-bottom-color:#bbb; }
 #side #results li:first-child{ border-top-left-radius:.5em; border-top-right-radius:.5em; }
 #side #results li:last-child{ border-bottom-width:1px; border-bottom-left-radius:.5em; border-bottom-right-radius:.5em; }
-#side #results li > h3{ margin:0; color:#606060; font-weight:normal; }
+#side #results li > h3{ margin:0; color:#606060; font-weight:normal; /* -moz-user-select:text; */ }
 #side #results li > a{ color:#23629f; text-decoration:none; }
 #side #results li > span{ position:absolute; right:.5em; top:.5em; color:#888; }
 #side #results li > p{ margin:0; color:#888; margin:.2em 0; line-height:1.1em; }
