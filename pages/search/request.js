@@ -102,7 +102,7 @@ $(document).ready(function(){
 						 },
 			cache      : false,
 			beforeSend : function(){
-				$('#results').html('<li><h3>Wait for it...</h3></li>');
+				$('#results').html('<li class="loading"></li>');
 				map.removeLayer(polygon);
 				polygons.clearLayers();
 			},

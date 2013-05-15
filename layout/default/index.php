@@ -11,16 +11,12 @@ function system_head()
 
 function system_body_start()
 { ?>
-	<?php global $config, $page; ?>
+	<?php global $config; ?>
 	<div id="header">
 		<h1 id="logo"><a href="/"><?=$config['title']?></a></h1>
 		<h2 id="slogan">„Find research papers by location!“</h2>
 		<ul id="menu">
-			<?php foreach($config['menu'] as $key => $value)
-			{
-				echo '<li' . ($key == $page ? ' class="selected"' : '') . '>';
-				echo '<a href="?page=' . $key . '">' . $value . '</a></li>';
-			} ?>
+			<?php system_menu(); ?>
 		</ul>
 		<br class="clear">
 	</div>

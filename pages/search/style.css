@@ -14,7 +14,7 @@
 /****************************************************************
  * ads                                                          *
  ****************************************************************/
-#ads{ height:10em; min-width:500px; margin:0 0 2em; border-radius:.5em; border:1px solid #ccc; background:url("pic/advertisement.png") #eee no-repeat center; display:none; /* display:block; */ opacity:0; }
+#ads{ height:10em; min-width:500px; margin:0 0 2em; border-radius:.5em; border:1px solid #ccc; background:#eee url("pic/advertisement.png") no-repeat center; display:none; /* display:block; */ opacity:0; }
 
 /****************************************************************
  * map                                                          *
@@ -52,7 +52,7 @@
 /****************************************************************
  * 3. results                                                   *
  ****************************************************************/
-#side #results{ list-style:none; padding:0; margin:0 0 5em; }
+#side #results{ list-style:none; padding:0; margin:0 0 4.8em; }
 #side #results li{ font-size:1.5em; display:block; position:relative; padding:.5em 1em; border:1px solid #ccc; border-bottom-width:0; background:#eee; transition:background .1s; }
 #side #results li:hover{ background:#f8f8f8; border-color:#bbb; } #side #results li:hover + li{ border-top-color:#bbb; } #side #results li:last-child:hover{ border-bottom-color:#bbb; }
 #side #results li:first-child{ border-top-left-radius:.5em; border-top-right-radius:.5em; }
@@ -61,3 +61,4 @@
 #side #results li > a{ color:#23629f; text-decoration:none; }
 #side #results li > span{ position:absolute; right:.5em; top:.5em; color:#888; }
 #side #results li > p{ margin:0; color:#888; margin:.2em 0; line-height:1.1em; }
+#side #results li.loading{ min-height:5em; background:#eee url("pic/loading.gif") no-repeat center; }

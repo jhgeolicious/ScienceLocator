@@ -4,7 +4,10 @@
 error_reporting(-1);
 
 // load configuration
-include 'config/index.php';
+include 'system/config.php';
+
+// load system
+include 'system/index.php';
 
 // get page
 if(isset($_GET['page']))
