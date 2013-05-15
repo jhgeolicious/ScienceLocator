@@ -21,6 +21,8 @@ function system_body_start()
 		<br class="clear">
 	</div>
 	<div id="content">
+		<div id="borderleft"></div>
+		<div id="borderright"></div>
 <?php }
 
 function system_body_end()

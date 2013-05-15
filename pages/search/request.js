@@ -20,13 +20,7 @@ $(document).ready(function(){
 	var drawing = map_draw({
 		map:    map,
 		button: $('#area input[type="button"]'),
-		start:  function()
-		{
-			polygons.clearLayers();
-		},
-		stop:   function(points){
-			
-		}
+		start:  function(){ polygons.clearLayers(); },
 	});
 
 	/****************************************************************

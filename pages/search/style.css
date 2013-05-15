@@ -1,10 +1,4 @@
 /****************************************************************
- * content                                                      *
- ****************************************************************/
-#content #middle{ margin-left: -1px; background:url("pic/content_border.png") no-repeat left  top; min-height:50px; }
-#content #side  { margin-right:-1px; background:url("pic/content_border.png") no-repeat right top; min-height:50px; }
-
-/****************************************************************
  * middle                                                       *
  ****************************************************************/
 #middle{ float:left; width:62%; position:relative; }
