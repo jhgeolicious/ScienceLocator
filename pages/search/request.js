@@ -12,14 +12,7 @@ $(document).ready(function(){
 
 	var terrain  = L.tileLayer('http://oatile1.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg').addTo(map);
 
-	/****************************************************************
-	 * debug print                                                  *
-	 ****************************************************************/
-	map.on('mousemove', function(e){
-		var lng = L.Util.formatNum(e.latlng.lng, 5);
-		var lat = L.Util.formatNum(e.latlng.lat, 5);
-		$('#debug').html('Lng ' + lng + ' Lat ' + lat);
-	}, this);
+	map_coordinates(map, $('#debug'));
 
 	/****************************************************************
 	 * polygon drawing                                              *
