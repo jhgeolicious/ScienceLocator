@@ -19,9 +19,12 @@ $search = array();
 if(isset($_POST['title']))
 	$search['title'] = $_POST['title'];
 
-if(isset($_POST['points']))
-	foreach($_POST['points'] AS $key => $value)
-		$search['points'][$key] = floatval($value);
+if(isset($_POST['points'])) {
+	foreach($_POST['points'] as $point)
+		$search['points'][] = array(floatval($point[0]), floatval($point[1]));
+	// add starting point at the end
+	$search['points'][] = $search['points'][0];
+}
 
 /*******************************************
  * database query                          *
