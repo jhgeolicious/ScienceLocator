@@ -63,7 +63,7 @@ VALUES
 	'" . $search['date'       ] . "',
 	'" . $search['link'       ] . "',
 	'" . $search['description'] . "',
-	ST_GeomFromGeoJSON('" . json_encode($geometry) . "')
+	ST_Force_2D(ST_GeomFromGeoJSON('" . json_encode($geometry) . "'))
 )
 ";
 
