@@ -47,9 +47,11 @@ if(isset($_POST['description']))
 
 $geometry = array(
 	'type'        => 'Polygon',
-	'coordinates' => $search['points'],
+	'coordinates' => array($search['points']),
 	'crs'         => array('type' => 'name', 'properties' => array('name' => 'EPSG:3857')),
 );
+
+// die(json_encode($geometry));
 
 /*******************************************
  * database query                          *
@@ -63,7 +65,7 @@ VALUES
 	'" . $search['date'       ] . "',
 	'" . $search['link'       ] . "',
 	'" . $search['description'] . "',
-	ST_Force_2D(ST_GeomFromGeoJSON('" . json_encode($geometry) . "'))
+	ST_GeomFromGeoJSON('" . json_encode($geometry) . "')
 )
 ";
 
@@ -74,14 +76,9 @@ $result = pg_query($db, $query);
  *******************************************/
 
 if($result)
-{
 	echo 'Thanks, the paper was posted successfully.';
-}
 else
-{
-	$error = pg_last_error();
-	echo 'Sorry, there was an error posting the paper.\n' . $error;
-}
+	echo nl2br('Sorry, there was an error posting the paper.\n' . pg_last_error());
 
 /*******************************************
  * free ressources                         *
