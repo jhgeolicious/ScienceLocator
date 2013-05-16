@@ -2,9 +2,7 @@
  * middle                                                       *
  ****************************************************************/
 #middle{ float:left; width:62%; position:relative; }
-#middle > div{ position:fixed; left:0; top:12em; /* top:0em; */ width:62%; }
-#middle > div > div{ margin:2em 2em 0 5em; overflow:hidden; }
-#ads{ height:10em; min-width:500px; margin:0 0 2em; border-radius:.5em; border:1px solid #ccc; background:url("pic/advertisement.png") #eee no-repeat center; display:none; /* display:block; */ opacity:0; }
+#middle > div{ margin:2em 1.3em 0 2em; overflow:hidden; }
 #map{ height:500px; border-radius:.5em; margin:2px 0 0; border:1px solid #ccc; background:#eee; }
 
 /****************************************************************

@@ -29,10 +29,10 @@
 		</form>
 	</div>
 	</div></div>
-	<div id="middle"><div><div>
+	<div id="middle"><div>
 		<div id="map"></div>
 		<div id="footer">Copyright © 2013 Science Locator. Early prototype by Danijar Hafner. <span id="debug"></span></div>
-	</div></div></div>
+	</div></div>
 	<br class="clear">
 	<?php system_body_end(); ?>
 	<script src="<?=$system_page_dir?>/layout.js"           ></script>
