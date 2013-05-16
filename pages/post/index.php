@@ -20,10 +20,11 @@
 	<h2>2. Enter keywords the paper is about</h2>
 	<div id="details">
 		<form method="post">
-			<span><input type="text" placeholder=" Title" value="" /></span><br />
-			<span><input type="text" placeholder=" Link" value="" /></span><br />
-			<span><input type="text" placeholder=" Description" value="" /></span><br />
-			<input type="button" class="button" value="Post Paper">
+			<span><input type="text"   name="title"       placeholder=" Title"       value="German Territory" /></span><br />
+			<span><input type="text"   name="date"        placeholder=" Date"        value="16.05.2013" /></span><br />
+			<span><input type="text"   name="link"        placeholder=" Link"        value="https://en.wikipedia.org/wiki/Germany" /></span><br />
+			<span><input type="text"   name="description" placeholder=" Description" value="Germany is in Western and Central Europe, with Denmark bordering to the north, Poland and the Czech Republic to the east, Austria and Switzerland to the south, France and Luxembourg to the southwest, and Belgium and the Netherlands to the northwest." /></span><br />
+			<input       type="button" name="submit"      class="button"             value="Post Paper">
 			<br class="clear" />
 		</form>
 	</div>

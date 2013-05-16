@@ -41,4 +41,6 @@
 #side #details span{ display:block; overflow:hidden; font-size:1.5em; padding:.5em; background:#fff; border-radius:.3em; border:1px solid #aaa; /* cursor:text; */ }
 #side #details span input[type="text"]{ width:100%; border:none; }
 #side #details input[type="button"]{ float:right; margin:0 0 0 .5em; }
+#side #details h3{ font-size:2em; margin:0; color:#606060; font-weight:normal; }
 #side #details p{ font-size:1.2em; margin:.2em 1em .6em; color:#888; }
+#side #details p.loading{ min-height:5em; background:#eee url("pic/loading.gif") no-repeat center; }

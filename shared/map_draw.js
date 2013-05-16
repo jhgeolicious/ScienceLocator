@@ -46,15 +46,15 @@ var map_draw = function(options)
 		if(drawing)
 		{
 			// double click
-			if(points[points.length - 1] == e.latlng)
+			if(public.points[public.points.length - 1] == e.latlng)
 			{
 				state(false);
 			}
 			// single click
 			else
 			{
-				points.push(e.latlng);
-				display(points);
+				public.points.push(e.latlng);
+				display(public.points);
 			}
 		}
 	});
@@ -62,7 +62,7 @@ var map_draw = function(options)
 	// preview next point
 	options.map.on('mousemove', function(e) {
 		if(drawing)
-			display(points.concat(e.latlng));
+			display(public.points.concat(e.latlng));
 	});
 
 	/****************************************************************
@@ -78,7 +78,7 @@ var map_draw = function(options)
 
 		if(drawing)
 		{
-			points = [];
+			public.points = [];
 			options.button.val(config.button_value_stop);
 			if(options.start) options.start();
 		}
@@ -87,7 +87,7 @@ var map_draw = function(options)
 			options.button.val(config.button_value_start);
 			if(options.stop) options.stop(points);
 		}
-		display(points);
+		display(public.points);
 	}
 
 	function display(points)

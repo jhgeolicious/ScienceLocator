@@ -1,14 +1,16 @@
 <?php
 
 /*******************************************
- * initialization and database setup       *
+ * connect to database                     *
  *******************************************/
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(-1);
+include '../../system/config.php';
 
-$db = pg_connect("host=localhost port=5432 dbname=postgistry user=postgres password=postgres") or die('Connection to database failed.');
+$db = pg_connect('host='     . $config['database'][  'host'  ]
+	          . ' port='     . $config['database'][  'port'  ]
+	          . ' dbname='   . $config['database'][ 'dbname' ]
+	          . ' user='     . $config['database'][  'user'  ]
+	          . ' password=' . $config['database']['password']) or die('Connection to database failed.');
 
 /*******************************************
  * fetch input from JavaScript             *

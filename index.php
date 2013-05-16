@@ -4,10 +4,10 @@
 error_reporting(-1);
 
 // load configuration
-include 'system/config.php';
+require_once('system/config.php');
 
 // load system
-include 'system/index.php';
+require_once('system/index.php');
 
 // get page
 if(isset($_GET['page']))
@@ -21,7 +21,7 @@ $system_page_dir = 'pages/' . $page;
 $system_shared_dir = 'shared';
 
 // load layout
-include $system_layout_dir . '/index.php';
+require_once($system_layout_dir . '/index.php');
 
 // securely include page
 if(in_array($page, $config['pages']))

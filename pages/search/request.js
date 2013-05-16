@@ -35,12 +35,12 @@ $(document).ready(function(){
 			dataType   : 'json',
 			data       : {
 							title  : title  || '',
-							points : (points ? lnglat_to_array(points) : ''),
+							points : points || '',
 						 },
 			cache      : false,
 			beforeSend : function(){
 				$('#results').html('<li class="loading"></li>');
-				drawing.hide(); // map.removeLayer(polygon);
+				drawing.hide();
 				polygons.clearLayers();
 			},
 			success : function(json){
@@ -56,7 +56,10 @@ $(document).ready(function(){
 	}
 
 	$('#keywords input[type="button"]').click(function(){
-		search_request($('#keywords input[type="text"]').val(), drawing.points);
+		search_request(
+			$('#keywords input[type="text"]').val(),
+			lnglat_to_array(drawing.points)
+		);
 	});
 
 	function lnglat_to_array(lnglat)
