@@ -23,14 +23,13 @@ require('../../shared/database_query.php');
 require('../../shared/geojson_conversion.php');
 
 $db = connect();
-$geometry = geojson_from_points($search['points']);
 
 $result = query($db,
 	"SELECT id, title, to_char(date, 'MM/DD/YYYY') As date, link, description, ST_AsGeoJSON(polygon)
 	FROM tablename
 	WHERE ST_Intersects(ST_GeomFromGeoJSON($1), polygon) = 't'
 	AND   ST_Within    (ST_GeomFromGeoJSON($1), polygon) = 'f';",
-	$geometry
+	geojson_from_points($search['points'])
 );
 
 /*******************************************
