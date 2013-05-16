@@ -1,21 +1,6 @@
 <?php
 
 /*******************************************
- * fetch input from JavaScript             *
- *******************************************/
-
-$search = array();
-
-if(isset($_POST['keywords']))
-	$search['keywords'] = trim($_POST['keywords']);
-
-if(isset($_POST['points'])) {
-	foreach($_POST['points'] as $point)
-		$search['points'][] = array(floatval($point[0]), floatval($point[1]));
-	$search['points'][] = $search['points'][0];
-}
-
-/*******************************************
  * database query                          *
  *******************************************/
 
@@ -55,8 +40,10 @@ $geojson = array('type' => 'FeatureCollection', 'features' => $features);
  * encode output                           *
  *******************************************/
 
-$output = json_encode($geojson) or die('There was an error encoding the results to JSON in the PHP script.');
-echo $output;
+if(count($features) > 0)
+	echo json_encode($geojson);
+else
+	die('No query results from database.');
 
 /*******************************************
  * free ressources                         *

@@ -19,7 +19,7 @@ $(document).ready(function(){
 	 ****************************************************************/
 
 	var request = $.ajax({
-		url        : 'pages/search/request.php',
+		url        : 'pages/all/request.php',
 		type       : 'POST',
 		dataType   : 'json',
 		cache      : false,
