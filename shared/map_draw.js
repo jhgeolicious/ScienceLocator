@@ -79,12 +79,12 @@ var map_draw = function(options)
 		if(drawing)
 		{
 			public.points = [];
-			options.button.val(config.button_value_stop);
+			options.button.addClass('pressed').val(config.button_value_stop);
 			if(options.start) options.start();
 		}
 		else
 		{
-			options.button.val(config.button_value_start);
+			options.button.removeClass('pressed').val(config.button_value_start);
 			if(options.stop) options.stop(points);
 		}
 		display(public.points);

@@ -8,7 +8,9 @@ body{ font-size:10px; margin:0; padding:0; font-family:Arial,sans-serif; backgro
 /****************************************************************
  * shared                                                       *
  ****************************************************************/
-.button{ font-size:1.425em; padding:.5em; color:#666; text-shadow:0 1px 0 #fff; background:#f5f5f5; background-image:linear-gradient(#FAFAFA, #EAEAEA); font-family:Helvetica,Arial,sans-serif; font-weight:700; border-radius:.3em; border:1px solid #aaa; box-shadow:0 .1em .1em rgba(0,0,0,.1); }
+.button{ font-size:1.425em; padding:.5em; min-width:8em; color:#666; text-shadow:0 1px 0 #fff; background:#f5f5f5; background-image:linear-gradient(#fafafa, #eaeaea); font-family:Helvetica,Arial,sans-serif; font-weight:700; border-radius:.3em; border:1px solid #aaa; box-shadow:0 .1em .1em rgba(0,0,0,.1); }
+.button:hover{ background:#eaeaea; background-image:linear-gradient(#f5f5f5, #e2e2e2); }
+.button:active, .button.pressed{ background:#e0e0e0; box-shadow:inset 0 .2em .4em rgba(0,0,0,.2), 0 .1em .1em rgba(0,0,0,.1); }
 
  /****************************************************************
  * header                                                       *

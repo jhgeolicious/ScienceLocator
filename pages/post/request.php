@@ -48,8 +48,7 @@ if(isset($_POST['description']))
 $geometry = array(
 	'type'        => 'Polygon',
 	'coordinates' => $search['points'],
-	//'crs'         => array('type' => 'name', 'properties' => array('name' => 'EPSG3857')),
-	//'srid'        => 3857,
+	'crs'         => array('type' => 'name', 'properties' => array('name' => 'EPSG:3857')),
 );
 
 /*******************************************
@@ -64,7 +63,7 @@ VALUES
 	'" . $search['date'       ] . "',
 	'" . $search['link'       ] . "',
 	'" . $search['description'] . "',
-	ST_SetSRID(ST_GeomFromGeoJSON('" . json_encode($geometry) . "'), 3857)
+	ST_GeomFromGeoJSON('" . json_encode($geometry) . "')
 )
 ";
 

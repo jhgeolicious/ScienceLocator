@@ -28,5 +28,5 @@ function system_body_start()
 function system_body_end()
 { ?>
 	</div>
-	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <?php }
