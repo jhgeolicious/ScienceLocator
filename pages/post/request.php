@@ -34,7 +34,7 @@ $geometry = array(
  * database query                          *
  *******************************************/
 
-include 'query.php';
+require('../../shared/database_query.php');
 
 $db = connect();
 

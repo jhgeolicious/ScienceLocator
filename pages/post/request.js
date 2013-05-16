@@ -55,7 +55,7 @@ $(document).ready(function(){
 			$('#details input[name=title]').val(),
 			$('#details input[name=date]').val(),
 			$('#details input[name=link]').val(),
-			$('#details textarea[name=description]').html(),
+			$('#details textarea[name=description]').val(),
 			lnglat_to_array(drawing.points)
 		);
 	});

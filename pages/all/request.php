@@ -1,30 +1,17 @@
 <?php
 
 /*******************************************
- * connect to database                     *
- *******************************************/
-
-include '../../system/config.php';
-
-$db = pg_connect('host='     . $config['database'][  'host'  ]
-	          . ' port='     . $config['database'][  'port'  ]
-	          . ' dbname='   . $config['database'][ 'dbname' ]
-	          . ' user='     . $config['database'][  'user'  ]
-	          . ' password=' . $config['database']['password']) or die('Connection to database failed.');
-
-/*******************************************
  * fetch input from JavaScript             *
  *******************************************/
 
 $search = array();
 
-if(isset($_POST['title']))
-	$search['title'] = $_POST['title'];
+if(isset($_POST['keywords']))
+	$search['keywords'] = trim($_POST['keywords']);
 
 if(isset($_POST['points'])) {
 	foreach($_POST['points'] as $point)
 		$search['points'][] = array(floatval($point[0]), floatval($point[1]));
-	// add starting point at the end
 	$search['points'][] = $search['points'][0];
 }
 
@@ -32,18 +19,12 @@ if(isset($_POST['points'])) {
  * database query                          *
  *******************************************/
 
-$query = "
-SELECT
-	id,
-	title,
-	to_char(date, 'MM/DD/YYYY') As date,
-	link,
-	description,
-	ST_AsGeoJSON(polygon)
-FROM tablename
-";
+require('../../shared/database_query.php');
 
-$result = pg_query($db, $query) or die('No query results from database.');
+$db = connect();
+
+$result = query($db, "SELECT id, title, to_char(date, 'MM/DD/YYYY') As date, link, description, ST_AsGeoJSON(polygon) FROM tablename")
+	or die('No query results from database.');
 
 /*******************************************
  * create GeoJSON object                   *
@@ -67,7 +48,6 @@ while ($row = pg_fetch_array($result))
 		'properties' => $properties,
 	);
 }
-pg_free_result($result);
 
 $geojson = array('type' => 'FeatureCollection', 'features' => $features);
 
@@ -82,4 +62,5 @@ echo $output;
  * free ressources                         *
  *******************************************/
 
+pg_free_result($result);
 pg_close($db);

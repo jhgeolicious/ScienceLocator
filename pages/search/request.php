@@ -1,52 +1,40 @@
 <?php
 
 /*******************************************
- * connect to database                     *
- *******************************************/
-
-include '../../system/config.php';
-
-$db = pg_connect('host='     . $config['database'][  'host'  ]
-	          . ' port='     . $config['database'][  'port'  ]
-	          . ' dbname='   . $config['database'][ 'dbname' ]
-	          . ' user='     . $config['database'][  'user'  ]
-	          . ' password=' . $config['database']['password']) or die('Connection to database failed.');
-
-/*******************************************
  * fetch input from JavaScript             *
  *******************************************/
 
 $search = array();
 
-if(isset($_POST['title']))
-	$search['title'] = $_POST['title'];
+if(isset($_POST['keywords']))
+	$search['keywords'] = trim($_POST['keywords']);
 
 if(isset($_POST['points'])) {
 	foreach($_POST['points'] as $point)
 		$search['points'][] = array(floatval($point[0]), floatval($point[1]));
-	// add starting point at the end
 	$search['points'][] = $search['points'][0];
-}
+} else die('You need to specify a search area.');
 
 /*******************************************
  * database query                          *
  *******************************************/
 
-$query = "
-SELECT
-	id,
-	title,
-	to_char(date, 'MM/DD/YYYY') As date,
-	link,
-	description,
-	ST_AsGeoJSON(polygon)
-FROM tablename
-";
+require('../../shared/database_query.php');
+require('../../shared/geojson_conversion.php');
 
-$result = pg_query($db, $query) or die('No query results from database.');
+$db = connect();
+$geometry = geojson_from_points($search['points']);
+
+$result = query($db,
+	"SELECT id, title, to_char(date, 'MM/DD/YYYY') As date, link, description, ST_AsGeoJSON(polygon)
+	FROM tablename
+	WHERE ST_Intersects(ST_GeomFromGeoJSON($1), polygon) = 't'
+	AND   ST_Within    (ST_GeomFromGeoJSON($1), polygon) = 'f';",
+	$geometry
+);
 
 /*******************************************
- * create GeoJSON object                   *
+ * create geojson object                   *
  *******************************************/
 
 $features = array();
@@ -67,7 +55,6 @@ while ($row = pg_fetch_array($result))
 		'properties' => $properties,
 	);
 }
-pg_free_result($result);
 
 $geojson = array('type' => 'FeatureCollection', 'features' => $features);
 
@@ -75,11 +62,14 @@ $geojson = array('type' => 'FeatureCollection', 'features' => $features);
  * encode output                           *
  *******************************************/
 
-$output = json_encode($geojson) or die('There was an error encoding the results to JSON in the PHP script.');
-echo $output;
+if(count($features) > 0)
+	echo json_encode($geojson);
+else
+	die('No query results from database.');
 
 /*******************************************
  * free ressources                         *
  *******************************************/
 
+pg_free_result($result);
 pg_close($db);

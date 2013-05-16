@@ -11,13 +11,13 @@
 <body>
 	<?php system_body_start(); ?>
 	<div id="side"><div>
-		<h2>1. Draw an area on the map</h2>
+		<h2>First, draw an area on the map</h2>
 		<div id="area">
 			<p>Welcome to Science Locator! Start a new search by clicking the button below.</p>
 			<span><input type="button" class="button" value="Define Area"></span>
 			<p>Then click on points on the map to define the corners of a polygon. The search results will be filtered by that area.<p>
 		</div>
-		<h2>2. Enter keywords you look for</h2>
+		<h2>Enter keywords you look for</h2>
 		<div id="keywords">
 			<form method="post">
 				<input type="button" class="button" value="Find Results">
@@ -25,7 +25,7 @@
 			</form>
 			<p>Examples are <i>lake, tokio, topology</i>. You might leave this blank.</p>
 		</div>
-		<h2>3. Results on the map and below</h2>
+		<h2>Results on the map and below</h2>
 		<ul id="results">
 			<li><br/><br/><br/></li>
 		</ul>
