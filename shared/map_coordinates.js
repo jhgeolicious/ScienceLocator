@@ -1,8 +1,8 @@
-var map_coordinates = function(map, element)
+var map_coordinates = function(map, element, text)
 {
 	map.on('mousemove', function(e){
-		var lng = L.Util.formatNum(e.latlng.lng, 5);
-		var lat = L.Util.formatNum(e.latlng.lat, 5);
-		element.html('Lng ' + lng + ' Lat ' + lat);
+		var lng = Math.round(L.Util.formatNum(e.latlng.lng, 5) * 100) / 100;
+		var lat = Math.round(L.Util.formatNum(e.latlng.lat, 5) * 100) / 100;
+		element.html((text ? text + ' ' : '') + 'Lng ' + lng + ' and Lat ' + lat);
 	}, this);
 }

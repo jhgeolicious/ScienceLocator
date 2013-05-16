@@ -6,7 +6,7 @@ $(document).ready(function(){
 	
 	var map = map_initialize();
 
-	map_coordinates(map, $('#debug'));
+	map_coordinates(map, $('#debug'), 'Mouse at');
 
 	var drawing = map_draw({
 		map:    map,
@@ -81,9 +81,9 @@ $(document).ready(function(){
 	{
 		$('#results').append('<li tag="' + (properties.id          || ''              ) + '">'
 		                   + '<h3>'      + (properties.title       || 'Untitled'      ) + '</h3>'
-		                   + (properties.link ? '<a href="' + properties.link + '">' + properties.link + '</a>' : '')
+		                   + (properties.link ? '<a href="' + properties.link + '" target="_blank">' + properties.link + '</a>' : '')
 		                   + '<span>'    + (properties.date        || 'date unknown'  ) + '</span>'
-		                   + '<p>'       + (properties.description || 'no description') + '</p>'
+		                   + (properties.description ? '<p>' + properties.description + '</p>' : '')
 		                   + '</li>');
 	}
 });

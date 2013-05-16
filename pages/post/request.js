@@ -6,7 +6,7 @@ $(document).ready(function(){
 	
 	var map = map_initialize();
 
-	map_coordinates(map, $('#debug'));
+	map_coordinates(map, $('#debug'), 'Mouse at');
 
 	var drawing = map_draw({
 		map:    map,
@@ -55,7 +55,7 @@ $(document).ready(function(){
 			$('#details input[name=title]').val(),
 			$('#details input[name=date]').val(),
 			$('#details input[name=link]').val(),
-			$('#details input[name=description]').val(),
+			$('#details textarea[name=description]').html(),
 			lnglat_to_array(drawing.points)
 		);
 	});

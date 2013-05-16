@@ -4,21 +4,14 @@
 #middle{ float:left; width:62%; position:relative; }
 #middle > div{ position:fixed; left:0; top:12em; /* top:0em; */ width:62%; }
 #middle > div > div{ margin:2em 2em 0 5em; overflow:hidden; }
-
-/****************************************************************
- * ads                                                          *
- ****************************************************************/
 #ads{ height:10em; min-width:500px; margin:0 0 2em; border-radius:.5em; border:1px solid #ccc; background:url("pic/advertisement.png") #eee no-repeat center; display:none; /* display:block; */ opacity:0; }
-
-/****************************************************************
- * map                                                          *
- ****************************************************************/
 #map{ height:500px; border-radius:.5em; margin:2px 0 0; border:1px solid #ccc; background:#eee; }
 
 /****************************************************************
  * footer                                                       *
  ****************************************************************/
 #footer{ font-size:1.3em; margin:1em 0 1.5em; }
+#debug{ color:#bbb; }
 
 /****************************************************************
  * side                                                         *
@@ -29,18 +22,17 @@
 /****************************************************************
  * 1. area                                                      *
  ****************************************************************/
-#side #area{ border:1px solid #ccc; border-radius:.5em; padding:.5em; background:#eee; }
-#side #area span{ display:block; text-align:center; }
-#side #area input[type="button"]{ margin:.5em 0; }
-#side #area p{ font-size:1.2em; margin:.4em 1em; color:#888; }
+#area{ border:1px solid #ccc; border-radius:.5em; padding:.5em; background:#eee; }
+#area span{ display:block; text-align:center; }
+#area input[type="button"]{ min-width:9em; margin:.5em 0; }
+#area p{ font-size:1.2em; margin:.4em 1em; color:#888; }
 
 /****************************************************************
  * 2. details                                                   *
  ****************************************************************/
-#side #details{ border:1px solid #ccc; border-radius:.5em; padding:1em; background:#eee; }
-#side #details span{ display:block; overflow:hidden; font-size:1.5em; padding:.5em; background:#fff; border-radius:.3em; border:1px solid #aaa; /* cursor:text; */ }
-#side #details span input[type="text"]{ width:100%; border:none; }
-#side #details input[type="button"]{ float:right; margin:0 0 0 .5em; }
-#side #details h3{ font-size:2em; margin:0; color:#606060; font-weight:normal; }
-#side #details p{ font-size:1.2em; margin:.2em 1em .6em; color:#888; }
-#side #details p.loading{ min-height:5em; background:#eee url("pic/loading.gif") no-repeat center; }
+#details{ border:1px solid #ccc; border-radius:.5em; padding:1em; background:#eee; }
+#details input[type="text"], #details textarea{ font-size:1.5em; display:block; width:97.7%; padding:.5em 1%; background:#fff; border-radius:.3em; border:1px solid #aaa; font-family:sans-serif; } #details textarea{ resize:vertical; }
+#details input[type="button"]{ float:right; margin:0 0 0 .5em; }
+#details h3{ font-size:2em; margin:0; color:#606060; font-weight:normal; }
+#details p{ font-size:1.2em; margin:.2em 1em .6em; color:#888; }
+#details p.loading{ min-height:5em; background:#eee url("pic/loading.gif") no-repeat center; }

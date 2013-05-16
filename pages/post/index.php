@@ -20,18 +20,18 @@
 	<h2>2. Enter keywords the paper is about</h2>
 	<div id="details">
 		<form method="post">
-			<span><input type="text"   name="title"       placeholder=" Title"       value="" /></span><br />
-			<span><input type="text"   name="date"        placeholder=" Date"        value="" /></span><br />
-			<span><input type="text"   name="link"        placeholder=" Link"        value="" /></span><br />
-			<span><input type="text"   name="description" placeholder=" Description" value="" /></span><br />
-			<input       type="button" name="submit"      class="button"             value="Post Paper">
+			<input type="text"   name="title"       placeholder=" Title"/>                  <br />
+			<input type="text"   name="date"        placeholder=" Date" />                  <br />
+			<input type="text"   name="link"        placeholder=" Link" />                  <br />
+			<textarea            name="description" placeholder=" Description" /></textarea><br />
+			<input type="button" name="submit" value="Post Paper" class="button">
 			<br class="clear" />
 		</form>
 	</div>
 	</div></div>
 	<div id="middle"><div><div>
 		<div id="map"></div>
-		<div id="footer">Copyright © 2013 Science Locator. Early prototype by Danijar Hafner. <span style="color:#aaa;">Debug: <span id="debug"></span></span></div>
+		<div id="footer">Copyright © 2013 Science Locator. Early prototype by Danijar Hafner. <span id="debug"></span></div>
 	</div></div></div>
 	<br class="clear">
 	<?php system_body_end(); ?>

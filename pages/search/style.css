@@ -4,21 +4,14 @@
 #middle{ float:left; width:62%; position:relative; }
 #middle > div{ position:fixed; left:0; top:12em; /* top:0em; */ width:62%; }
 #middle > div > div{ margin:2em 2em 0 5em; overflow:hidden; }
-
-/****************************************************************
- * ads                                                          *
- ****************************************************************/
 #ads{ height:10em; min-width:500px; margin:0 0 2em; border-radius:.5em; border:1px solid #ccc; background:#eee url("pic/advertisement.png") no-repeat center; display:none; /* display:block; */ opacity:0; }
-
-/****************************************************************
- * map                                                          *
- ****************************************************************/
 #map{ height:500px; border-radius:.5em; margin:2px 0 0; border:1px solid #ccc; background:#eee; }
 
 /****************************************************************
  * footer                                                       *
  ****************************************************************/
 #footer{ font-size:1.3em; margin:1em 0 1.5em; }
+#debug{ color:#bbb; }
 
 /****************************************************************
  * side                                                         *
@@ -31,7 +24,7 @@
  ****************************************************************/
 #side #area{ border:1px solid #ccc; border-radius:.5em; padding:.5em; background:#eee; }
 #side #area span{ display:block; text-align:center; }
-#side #area input[type="button"]{ margin:.5em 0; }
+#side #area input[type="button"]{ min-width:9em; margin:.5em 0; }
 #side #area p{ font-size:1.2em; margin:.4em 1em; color:#888; }
 
 /****************************************************************

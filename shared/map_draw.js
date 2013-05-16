@@ -6,8 +6,8 @@ var map_draw = function(options)
 	 * configuration                                                *
 	 ****************************************************************/
 	var config = {
-		button_value_start: options.button.val(),
-		button_value_stop:  'I am ready',
+		button_value_start: 'Redefine Area',
+		button_value_stop:  'Admit Area',
 		appearence:         {
 		                        color:      '#f60',
 		                        opacity:     0.8,
@@ -16,8 +16,6 @@ var map_draw = function(options)
 		                        fillOpacity: 0.3,
 		                    },
 	};
-
-	options.button.val(config.button_value_start);
 
 	/****************************************************************
 	 * initlialization                                              *
