@@ -70,3 +70,17 @@ function check_description($description)
 
 	return $description;
 }
+
+function check_points($points)
+{
+	if(empty($points)) return false;
+
+	// add all points
+	foreach($points as $point)
+		$output[] = array(floatval($point[0]), floatval($point[1]));
+
+	// close ring
+	$output[] = $output[0];
+
+	return $output;
+}
