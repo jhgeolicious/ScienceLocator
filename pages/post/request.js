@@ -34,11 +34,13 @@ $(document).ready(function(){
 			cache      : false,
 
 			beforeSend : function(){
-				drawing.hide();
+				
 				$('#details input[type=text]').val(''),
 				$('#details').html('<p class="loading"></p>');
 			},
+			
 			success : function(text){
+				drawing.hide();
 				$('#details').html('<h3>' + text + '</h3>');
 			},
 

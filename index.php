@@ -1,8 +1,5 @@
 <?php
 
-// set error reporting only during development phase
-error_reporting(-1);
-
 // load configuration
 require_once('system/config.php');
 
