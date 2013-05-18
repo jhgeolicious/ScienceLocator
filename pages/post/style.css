@@ -1,36 +1,33 @@
 /****************************************************************
- * middle                                                       *
+ * layout                                                       *
  ****************************************************************/
-#middle{ float:left; width:62%; position:relative; }
-#middle > div{ margin:2em 1.3em 0 2em; overflow:hidden; }
-#map{ height:500px; border-radius:.5em; margin:2px 0 0; border:1px solid #ccc; background:#eee; }
+#left{ float:left; width:62%; position:relative; }
+#right{ float:right; width:38%; }
 
 /****************************************************************
- * footer                                                       *
+ * middle                                                       *
  ****************************************************************/
-#footer{ font-size:1.3em; margin:1em 0 1.5em; }
-#debug{ color:#bbb; }
+#middle{ margin:2em 1.3em 0 2em; overflow:hidden; }
+#middle #map{ height:500px; border-radius:.5em; margin:2px 0 0; border:1px solid #ccc; background:#eee; }
+#middle #footer{ font-size:1.3em; margin:1em 0 1.5em; }
+#middle #footer #debug{ color:#bbb; }
 
 /****************************************************************
  * side                                                         *
  ****************************************************************/
-#side{ float:right; width:38%; } #side > div{ margin:2em 2em 0 1em; overflow:hidden; }
+#side{ margin:2em 2em 0 1em; overflow:hidden; }
 #side h2{ font-size:2.3em; font-family:Georgia,serif; font-weight:normal; color:#555; margin:1em 0 .5em; } #side h2:first-child{ margin-top:0; }
+#side div{ border:1px solid #ccc; border-radius:.5em; padding:1.4em; background:#eee; }
+#side div h3{ font-size:2em; margin:0; color:#606060; font-weight:normal; }
+#side div p{ font-size:1.2em; margin:.6em 0; color:#888; }
+#side div p:first-child{ margin-top:0; }
+#side div p:last-child{ margin-bottom:0; }
+#side .message{ margin:2.1em 0; }
+#side .loading{ min-height:5em; background:#eee url("pic/loading.gif") no-repeat center; }
 
 /****************************************************************
- * 1. area                                                      *
+ * input                                                        *
  ****************************************************************/
-#area{ border:1px solid #ccc; border-radius:.5em; padding:.5em; background:#eee; }
-#area span{ display:block; text-align:center; }
-#area input[type="button"]{ min-width:9em; margin:.5em 0; }
-#area p{ font-size:1.2em; margin:.4em 1em; color:#888; }
-
-/****************************************************************
- * 2. details                                                   *
- ****************************************************************/
-#details{ border:1px solid #ccc; border-radius:.5em; padding:1em; background:#eee; }
+#area{ min-width:9em; margin:.5em auto; }
 #details input[type="text"], #details textarea{ font-size:1.5em; display:block; width:97.7%; padding:.5em 1%; background:#fff; border-radius:.3em; border:1px solid #aaa; font-family:sans-serif; } #details textarea{ resize:vertical; }
 #details input[type="button"]{ float:right; margin:0 0 0 .5em; }
-#details h3{ font-size:2em; margin:0; color:#606060; font-weight:normal; }
-#details p{ font-size:1.2em; margin:.2em 1em .6em; color:#888; }
-#details p.loading{ min-height:5em; background:#eee url("pic/loading.gif") no-repeat center; }

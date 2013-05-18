@@ -40,7 +40,7 @@ $result = query($db,
  *******************************************/
 
 if($result)
-	echo 'Thanks, the paper was posted successfully.';
+	echo 'success';
 else
 	echo 'Sorry, there was an error posting the paper.';
 

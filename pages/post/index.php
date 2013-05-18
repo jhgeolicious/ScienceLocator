@@ -10,26 +10,26 @@
 </head>
 <body>
 	<?php system_body_start(); ?>
-	<div id="side"><div>
-	<h2>Draw an area on the map</h2>
-	<div id="area">
-		<p>Welcome to Science Locator! Post a research paper by clicking the button below.</p>
-		<span><input type="button" class="button" value="Define Area"></span>
-		<p>Then click on points on the map to define the corners of a polygon. The area will be stored along with the paper.<p>
-	</div>
-	<h2>Enter details about the paper</h2>
-	<div id="details">
-		<form method="post">
-			<input type="text"   name="title"       placeholder=" Title"/>                  <br />
-			<input type="text"   name="date"        placeholder=" Date" />                  <br />
-			<input type="text"   name="link"        placeholder=" Link" />                  <br />
-			<textarea            name="description" placeholder=" Description" /></textarea><br />
-			<input type="button" name="submit" value="Post Paper" class="button">
-			<br class="clear" />
-		</form>
-	</div>
+	<div id="right"><div id="side">
+		<h2>Draw an area on the map</h2>
+		<div>
+			<p>Welcome to Science Locator! Post a research paper by clicking the button below.</p>
+			<center><input type="button" class="button" id="area" value="Define Area"></center>
+			<p>Then click on points on the map to define the corners of a polygon. The area will be stored along with the paper.</p>
+		</div>
+		<h2>Enter details about the paper</h2>
+		<div id="details">
+			<form method="post">
+				<input type="text"   name="title"       placeholder=" Title"/>                  <br />
+				<input type="text"   name="date"        placeholder=" Date" />                  <br />
+				<input type="text"   name="link"        placeholder=" Link" />                  <br />
+				<textarea            name="description" placeholder=" Description" /></textarea><br />
+				<input type="button" name="submit" value="Post Paper" class="button">
+				<br class="clear" />
+			</form>
+		</div>
 	</div></div>
-	<div id="middle"><div>
+	<div id="left"><div id="middle">
 		<div id="map"></div>
 		<div id="footer">Copyright © 2013 Science Locator. Early prototype by Danijar Hafner. <span id="debug"></span></div>
 	</div></div>

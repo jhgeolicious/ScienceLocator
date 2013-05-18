@@ -103,5 +103,11 @@ var map_draw = function(options)
 		options.map.removeLayer(polygon);
 	}
 
+	public.reset = function()
+	{
+		public.points = [];
+		public.hide();
+	}
+
 	return public;
 };

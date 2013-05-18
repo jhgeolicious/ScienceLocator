@@ -10,8 +10,8 @@ $(document).ready(function(){
 
 	var drawing = map_draw({
 		map:    map,
-		button: $('#area input[type="button"]'),
-		start:  function(){ polygons.clearLayers(); },
+		button: $('#area'),
+		start:  function(){ remove_messages()); },
 	});
 
 	/****************************************************************
@@ -20,7 +20,8 @@ $(document).ready(function(){
 
 	function request(title, date, link, description, points)
 	{
-		$('.message').remove();
+		$('.loading').remove();
+		remove_messages();
 
 		var request = $.ajax({
 			url        : 'pages/post/request.php',
@@ -34,17 +35,45 @@ $(document).ready(function(){
 							points       : points       || '',
 						 },
 			cache      : false,
-			beforeSend : function(){ $('#details').append('<p class="loading"></p>'); },
+			beforeSend : function(){ $('#side').append('<div class="message loading"></div>'); },
 		}).done(function(text){
-			drawing.hide();
-			$('#details input[type=text], #details textarea').val(''),
-			$('#details').prepend('<h3 class="message">' + text + '</h3>');
+			if(text == 'success')
+			{
+				success_message();
+				$('#details input[type=text], #details textarea').val('');
+				drawing.reset();
+				$('#area').val('Define Area');
+			}
+			else fail_message(text);
 		}).fail(function(jqxhr){
-			$('#details').html('<h3>The post request failed.</h3>' + '<p>' + jqxhr.responseText + '</p>');
+			fail_message(jqxhr.responseText);
 		}).always(function(){
-			$('.loading').remove();
+			remove_messages();
 		});
 	}
+
+	/****************************************************************
+	 * output messages                                              *
+	 ****************************************************************/
+
+	function success_message()
+	{
+		$('#side').append('<div class="message"><h3>Thanks, the paper was posted successfully.</h3><p>Feel free to post another paper just now.</p></div>');
+	}
+
+	function fail_message(text)
+	{
+		$('#side').append('<div class="message"><h3>Sorry, the post request failed.</h3>' + '<p>' + text + '</p></div>');
+	}
+
+	function remove_messages()
+	{
+		$('.loading').remove();
+	}
+
+	/****************************************************************
+	 * get user input                                               *
+	 ****************************************************************/
 
 	$('#details input[name=submit]').click(function(){
 		request(
@@ -55,6 +84,10 @@ $(document).ready(function(){
 			lnglat_to_array(drawing.points)
 		);
 	});
+
+	/****************************************************************
+	 * helpers                                                      *
+	 ****************************************************************/
 
 	function lnglat_to_array(lnglat)
 	{
