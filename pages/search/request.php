@@ -32,6 +32,8 @@ $result = query($db,
 	geojson_from_points($search['points'])
 );
 
+if(!$result) die('The database query failed.');
+
 /*******************************************
  * create geojson object                   *
  *******************************************/

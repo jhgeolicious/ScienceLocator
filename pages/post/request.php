@@ -42,7 +42,7 @@ $result = query($db,
 if($result)
 	echo 'Thanks, the paper was posted successfully.';
 else
-	echo nl2br('Sorry, there was an error posting the paper.' . '\r\n' . pg_last_error());
+	echo 'Sorry, there was an error posting the paper.';
 
 /*******************************************
  * free ressources                         *

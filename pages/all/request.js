@@ -23,21 +23,14 @@ $(document).ready(function(){
 		type       : 'POST',
 		dataType   : 'json',
 		cache      : false,
-		
-		beforeSend : function(){
-			$('#results').html('<li class="loading"></li>');
-		},
-
-		success : function(json){
-			$('#results').html('');
-			for(var i = 0; i < json.features.length; ++i)
-				list_result(json.features[i].properties);
-			polygons.addData(json.features);
-		},
-
-		error : function(jqxhr){
-			$('#results').html('<li><h3>The search request failed.</h3>' + '<p>' + jqxhr.responseText + '</p></li>');
-		},
+		beforeSend : function(){ $('#results').html('<li class="loading"></li>'); },
+	}).done(function(json){
+		$('#results').html('');
+		for(var i = 0; i < json.features.length; ++i)
+			list_result(json.features[i].properties);
+		polygons.addData(json.features);
+	}).fail(function(jqxhr){
+		$('#results').html('<li><h3>The search request failed.</h3>' + '<p>' + jqxhr.responseText + '</p></li>');
 	});
 
 	/****************************************************************

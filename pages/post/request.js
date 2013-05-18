@@ -20,6 +20,8 @@ $(document).ready(function(){
 
 	function request(title, date, link, description, points)
 	{
+		$('.message').remove();
+
 		var request = $.ajax({
 			url        : 'pages/post/request.php',
 			type       : 'POST',
@@ -32,21 +34,15 @@ $(document).ready(function(){
 							points       : points       || '',
 						 },
 			cache      : false,
-
-			beforeSend : function(){
-				
-				$('#details input[type=text]').val(''),
-				$('#details').html('<p class="loading"></p>');
-			},
-			
-			success : function(text){
-				drawing.hide();
-				$('#details').html('<h3>' + text + '</h3>');
-			},
-
-			error : function(jqxhr){
-				$('#details').html('<h3>The post request failed.</h3>' + '<p>' + jqxhr.responseText + '</p>');
-			},
+			beforeSend : function(){ $('#details').append('<p class="loading"></p>'); },
+		}).done(function(text){
+			drawing.hide();
+			$('#details input[type=text], #details textarea').val(''),
+			$('#details').prepend('<h3 class="message">' + text + '</h3>');
+		}).fail(function(jqxhr){
+			$('#details').html('<h3>The post request failed.</h3>' + '<p>' + jqxhr.responseText + '</p>');
+		}).always(function(){
+			$('.loading').remove();
 		});
 	}
 

@@ -29,23 +29,15 @@ $(document).ready(function(){
 							points : points || '',
 						 },
 			cache      : false,
-			
-			beforeSend : function(){
-				$('#results').html('<li class="loading"></li>');
-				drawing.hide();
-				polygons.clearLayers();
-			},
-
-			success : function(json){
-				$('#results').html('');
-				for(var i = 0; i < json.features.length; ++i)
-					list_result(json.features[i].properties);
-				polygons.addData(json.features);
-			},
-
-			error : function(jqxhr){
-				$('#results').html('<li><h3>The search request failed.</h3>' + '<p>' + jqxhr.responseText + '</p></li>');
-			},
+			beforeSend : function(){ $('#results').html('<li class="loading"></li>'); },
+		}).done(function(json){
+			$('#results').html('');
+			drawing.hide();
+			for(var i = 0; i < json.features.length; ++i)
+				list_result(json.features[i].properties);
+			polygons.addData(json.features);
+		}).fail(function(jqxhr){
+			$('#results').html('<li><h3>The search request failed.</h3>' + '<p>' + jqxhr.responseText + '</p></li>');
 		});
 	}
 
@@ -72,8 +64,7 @@ $(document).ready(function(){
 
 	var polygons = L.geoJson(null, {
 		onEachFeature: function(feature, layer){
-			debug = feature.geometry.coordinates;
-			layer.bindPopup(feature.properties.title + '<br><span style="color:#aaa;">' + 'Debug: ' + debug + "</span>");
+			layer.bindPopup(feature.properties.title);
 		},
 	}).addTo(map);
 

@@ -9,7 +9,7 @@ require('../../shared/database_query.php');
 $db = connect();
 
 $result = query($db, "SELECT id, title, to_char(date, 'MM/DD/YYYY') As date, link, description, ST_AsGeoJSON(polygon) FROM tablename")
-	or die('No query results from database.');
+	or die('The database query failed.');
 
 /*******************************************
  * create GeoJSON object                   *
