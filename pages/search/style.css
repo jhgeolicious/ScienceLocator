@@ -1,22 +1,24 @@
 /****************************************************************
- * middle                                                       *
+ * layout                                                       *
  ****************************************************************/
-#middle{ float:left; width:62%; position:relative; }
-#middle > div{ position:fixed; left:0; top:12em; /* top:0em; */ width:62%; }
-#middle > div > div{ margin:2em 2em 0 5em; overflow:hidden; }
-#ads{ height:10em; min-width:500px; margin:0 0 2em; border-radius:.5em; border:1px solid #ccc; background:#eee url("pic/advertisement.png") no-repeat center; display:none; /* display:block; */ opacity:0; }
-#map{ height:500px; border-radius:.5em; margin:2px 0 0; border:1px solid #ccc; background:#eee; }
+#left{ float:left; width:62%; position:relative; }
+#left > div{ position:fixed; left:0; top:12em; /* top:0em; */ width:62%; }
+#left #middle{ margin:2em 2em 0 5em; overflow:hidden; }
+
+#right{ float:right; width:38%; }
+#right #side{ margin:2em 2em 0 1em; overflow:hidden; }
 
 /****************************************************************
- * footer                                                       *
+ * middle                                                       *
  ****************************************************************/
-#footer{ font-size:1.3em; margin:1em 0 1.5em; }
-#debug{ color:#bbb; }
+#middle #ads{ height:10em; min-width:500px; margin:0 0 2em; border-radius:.5em; border:1px solid #ccc; background:#eee url("pic/advertisement.png") no-repeat center; display:none; /* display:block; */ opacity:0; }
+#middle #map{ height:500px; border-radius:.5em; margin:2px 0 0; border:1px solid #ccc; background:#eee; }
+#middle #footer{ font-size:1.3em; margin:1em 0 1.5em; }
+#middle #footer #debug{ color:#bbb; }
 
 /****************************************************************
  * side                                                         *
  ****************************************************************/
-#side{ float:right; width:38%; } #side > div{ margin:2em 2em 0 1em; overflow:hidden; }
 #side h2{ font-size:2.3em; font-family:Georgia,serif; font-weight:normal; color:#555; margin:1em 0 .5em; } #side h2:first-child{ margin-top:0; }
 
 /****************************************************************

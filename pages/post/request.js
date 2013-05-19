@@ -4,14 +4,14 @@ $(document).ready(function(){
 	 * initlialization                                              *
 	 ****************************************************************/
 	
-	var map = map_initialize();
+	var map = map_initialize('map');
 
 	map_coordinates(map, $('#debug'), 'Mouse at');
 
 	var drawing = map_draw({
 		map:    map,
-		button: $('#area'),
-		start:  function(){ remove_messages()); },
+		button: $('input[name=area]'),
+		start:  function(){ remove_messages(); },
 	});
 
 	/****************************************************************
@@ -20,7 +20,6 @@ $(document).ready(function(){
 
 	function request(title, date, link, description, points)
 	{
-		$('.loading').remove();
 		remove_messages();
 
 		var request = $.ajax({
@@ -42,13 +41,11 @@ $(document).ready(function(){
 				success_message();
 				$('#details input[type=text], #details textarea').val('');
 				drawing.reset();
-				$('#area').val('Define Area');
+				$('input[name=area]').val('Define Area');
 			}
 			else fail_message(text);
 		}).fail(function(jqxhr){
 			fail_message(jqxhr.responseText);
-		}).always(function(){
-			remove_messages();
 		});
 	}
 
@@ -58,17 +55,19 @@ $(document).ready(function(){
 
 	function success_message()
 	{
+		remove_messages();
 		$('#side').append('<div class="message"><h3>Thanks, the paper was posted successfully.</h3><p>Feel free to post another paper just now.</p></div>');
 	}
 
 	function fail_message(text)
 	{
-		$('#side').append('<div class="message"><h3>Sorry, the post request failed.</h3>' + '<p>' + text + '</p></div>');
+		remove_messages();
+		$('#side').append('<div class="message"><h3>Sorry, the post request failed.</h3><p>' + text + '</p></div>');
 	}
 
 	function remove_messages()
 	{
-		$('.loading').remove();
+		$('.message').remove();
 	}
 
 	/****************************************************************

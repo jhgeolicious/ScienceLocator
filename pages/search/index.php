@@ -10,7 +10,7 @@
 </head>
 <body>
 	<?php system_body_start(); ?>
-	<div id="side"><div>
+	<div id="right"><div id="side">
 		<h2>First, draw an area on the map</h2>
 		<div id="area">
 			<p>Welcome to Science Locator! Start a new search by clicking the button below.</p>
@@ -30,7 +30,7 @@
 			<li><br/><br/><br/></li>
 		</ul>
 	</div></div>
-	<div id="middle"><div><div>
+	<div id="left"><div><div id="middle">
 		<div id="ads">&nbsp;</div>
 		<div id="map"></div>
 		<div id="footer">Copyright © 2013 <?=$config['title']?>. Early prototype by Danijar Hafner. <span id="debug"></span></div>

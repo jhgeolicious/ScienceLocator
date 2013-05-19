@@ -20,13 +20,14 @@ function system_body_start()
 		</ul>
 		<br class="clear">
 	</div>
-	<div id="content">
-		<div id="borderleft"></div>
-		<div id="borderright"></div>
+	<div id="edge"></div>
+	<div id="borderleft"></div>
+	<div id="borderright"></div>
 <?php }
 
 function system_body_end()
 { ?>
-	</div>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<!--script src="http://cdn.jsdelivr.net/prefixfree/1.0.7/prefixfree.dynamic-dom.min.js"></script-->
+	<!--script src="https://raw.github.com/LeaVerou/prefixfree/gh-pages/prefixfree.min.js"></script-->
 <?php }

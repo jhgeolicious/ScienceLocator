@@ -17,14 +17,14 @@ $(document).ready(function(){
 		// show ads
 		if($(document).scrollTop() > 100)
 		{
-			$('#middle > div').css('top', '0');
+			$('#left > div').css('top', '0');
 			$('#ads').css('display', 'block').animate({'opacity' : '1'}, 350, function(){ $('#ads').css('opacity', '1'); });
 			$('#map').css('margin-top', '0px');
 		}
 		// hide ads
 		else
 		{
-			$('#middle > div').css('top', '12em');
+			$('#left > div').css('top', '12em');
 			$('#ads').css('display', 'none').stop().css('opacity', '0');
 			$('#map').css('margin-top', '2px');
 		}
