@@ -1,53 +1,33 @@
 /****************************************************************
  * layout                                                       *
  ****************************************************************/
-#left{ float:left; width:62%; position:relative; }
-#left > div{ position:fixed; left:0; top:12em; /* top:0em; */ width:62%; }
-#left #middle{ margin:2em 2em 0 5em; overflow:hidden; }
-
-#right{ float:right; width:38%; }
-#right #side{ margin:2em 2em 0 1em; overflow:hidden; }
+.left{ top:14.5em; bottom:5em; }
+.left + .left{ top:auto; bottom:2em; }
+.left + .left + .left{ top:2em; bottom:auto; }
 
 /****************************************************************
- * middle                                                       *
+ * left                                                         *
  ****************************************************************/
-#middle #ads{ height:10em; min-width:500px; margin:0 0 2em; border-radius:.5em; border:1px solid #ccc; background:#eee url("pic/advertisement.png") no-repeat center; display:none; /* display:block; */ opacity:0; }
-#middle #map{ height:500px; border-radius:.5em; margin:2px 0 0; border:1px solid #ccc; background:#eee; }
-#middle #footer{ font-size:1.3em; margin:1em 0 1.5em; }
-#middle #footer #debug{ color:#bbb; }
+#ads{ height:10em; margin:0 0 2em; border-radius:.5em; border:1px solid #ccc; background:#eee url("pic/advertisement.png") no-repeat center; display:none; }
+#map{ height:100%; border-radius:.5em; border:1px solid #ccc; background:#eee; }
+#footer{ font-size:1.3em; }
+#footer #debug{ color:#bbb; }
 
 /****************************************************************
- * side                                                         *
+ * right                                                        *
  ****************************************************************/
-#side h2{ font-size:2.3em; font-family:Georgia,serif; font-weight:normal; color:#555; margin:1em 0 .5em; } #side h2:first-child{ margin-top:0; }
+#results{ padding:0; min-height:5em; }
+input[name=area]{ min-width:9em; margin:.5em auto; }
+input[name=submit]{ float:right; }
 
 /****************************************************************
- * 1. area                                                      *
+ * results                                                      *
  ****************************************************************/
-#side #area{ border:1px solid #ccc; border-radius:.5em; padding:.5em; background:#eee; }
-#side #area span{ display:block; text-align:center; }
-#side #area input[type="button"]{ min-width:9em; margin:.5em 0; }
-#side #area p{ font-size:1.2em; margin:.4em 1em; color:#888; }
-
-/****************************************************************
- * 2. keywords                                                  *
- ****************************************************************/
-#side #keywords{ border:1px solid #ccc; border-radius:.5em; padding:1em; background:#eee; }
-#side #keywords span{ display:block; overflow:hidden; font-size:1.5em; padding:.5em; background:#fff; border-radius:.3em; border:1px solid #aaa; /* cursor:text; */ }
-#side #keywords span input[type="text"]{ width:100%; border:none; }
-#side #keywords input[type="button"]{ float:right; margin:0 0 0 .5em; }
-#side #keywords p{ font-size:1.2em; margin:.2em 1em .6em; color:#888; }
-
-/****************************************************************
- * 3. results                                                   *
- ****************************************************************/
-#side #results{ list-style:none; padding:0; margin:0 0 4.8em; }
-#side #results li{ font-size:1.5em; display:block; position:relative; padding:.5em 1em; border:1px solid #ccc; border-bottom-width:0; background:#eee; transition:background .1s; }
-#side #results li:hover{ background:#f8f8f8; border-color:#bbb; } #side #results li:hover + li{ border-top-color:#bbb; } #side #results li:last-child:hover{ border-bottom-color:#bbb; }
-#side #results li:first-child{ border-top-left-radius:.5em; border-top-right-radius:.5em; }
-#side #results li:last-child{ border-bottom-width:1px; border-bottom-left-radius:.5em; border-bottom-right-radius:.5em; }
-#side #results li > h3{ font-size:1.25em; margin:0; color:#606060; font-weight:normal; /* -moz-user-select:text; */ }
-#side #results li > a{ color:#23629f; text-decoration:none; }
-#side #results li > span{ position:absolute; right:.5em; top:.5em; color:#888; }
-#side #results li > p{ margin:0; color:#888; margin:.2em 0; line-height:1.1em; }
-#side #results li.loading{ min-height:5em; background:#eee url("pic/loading.gif") no-repeat center; }
+#results div{ font-size:1.5em; display:block; position:relative; padding:.5em 1em; border-top:1px solid #ccc; background:#eee; transition:background .1s; }
+#results div:first-child{ margin-top:-1px; border-top-left-radius:.33em; border-top-right-radius:.33em; }
+#results div:last-child{ border-bottom-left-radius:.33em; border-bottom-right-radius:.33em; }
+#results div:hover{ background:#f8f8f8; border:1px solid #bbb; margin-left:-1px; margin-right:-1px; margin-bottom:-1px; z-index:1; }
+#results div > h3{ font-size:1.25em; margin:0; color:#606060; font-weight:normal; /* -moz-user-select:text; */ }
+#results div > a{ color:#23629f; text-decoration:none; }
+#results div > span{ position:absolute; right:.5em; top:.5em; color:#888; }
+#results div > p{ font-size:1em; margin:0; color:#888; margin:.2em 0; line-height:1.1em; }

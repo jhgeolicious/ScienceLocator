@@ -8,7 +8,6 @@
 /****************************************************************
  * left                                                         *
  ****************************************************************/
-#ads{ height:10em; margin:0 0 2em; border-radius:.5em; border:1px solid #ccc; background:#eee url("pic/advertisement.png") no-repeat center; display:none; }
 #map{ height:100%; border-radius:.5em; border:1px solid #ccc; background:#eee; }
 #footer{ font-size:1.3em; }
 #footer #debug{ color:#bbb; }
@@ -29,4 +28,3 @@
 #results div > a{ color:#23629f; text-decoration:none; }
 #results div > span{ position:absolute; right:.5em; top:.5em; color:#888; }
 #results div > p{ font-size:1em; margin:0; color:#888; margin:.2em 0; line-height:1.1em; }
-#results div.loading{ min-height:5em; background:#eee url("pic/loading.gif") no-repeat center; }

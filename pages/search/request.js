@@ -4,13 +4,13 @@ $(document).ready(function(){
 	 * initlialization                                              *
 	 ****************************************************************/
 	
-	var map = map_initialize();
+	var map = map_initialize('map');
 
 	map_coordinates(map, $('#debug'), 'Mouse at');
 
 	var drawing = map_draw({
 		map:    map,
-		button: $('#area input[type="button"]'),
+		button: $('input[name=area]'),
 		start:  function(){ polygons.clearLayers(); },
 	});
 
@@ -29,7 +29,7 @@ $(document).ready(function(){
 							points : points || '',
 						 },
 			cache      : false,
-			beforeSend : function(){ $('#results').html('<li class="loading"></li>'); },
+			beforeSend : function(){ $('#results').addClass('loading'); },
 		}).done(function(json){
 			$('#results').html('');
 			drawing.hide();
@@ -37,13 +37,15 @@ $(document).ready(function(){
 				list_result(json.features[i].properties);
 			polygons.addData(json.features);
 		}).fail(function(jqxhr){
-			$('#results').html('<li><h3>The search request failed.</h3>' + '<p>' + jqxhr.responseText + '</p></li>');
+			$('#results').html('<h3>The search request failed.</h3><p>' + jqxhr.responseText + '</p>');
+		}).always(function(){
+			$('#results').removeClass('loading');
 		});
 	}
 
-	$('#keywords input[type="button"]').click(function(){
+	$('input[name=submit]').click(function(){
 		search_request(
-			$('#keywords input[type="text"]').val(),
+			$('input[name=keywords]').val(),
 			lnglat_to_array(drawing.points)
 		);
 	});
@@ -70,11 +72,11 @@ $(document).ready(function(){
 
 	function list_result(properties)
 	{
-		$('#results').append('<li tag="' + (properties.id          || ''              ) + '">'
-		                   + '<h3>'      + (properties.title       || 'Untitled'      ) + '</h3>'
+		$('#results').append('<div tag="' + (properties.id          || ''              ) + '">'
+		                   + '<h3>'       + (properties.title       || 'Untitled'      ) + '</h3>'
 		                   + (properties.link ? '<a href="' + properties.link + '" target="_blank">' + properties.link + '</a>' : '')
-		                   + '<span>'    + (properties.date        || 'date unknown'  ) + '</span>'
+		                   + '<span>'     + (properties.date        || 'date unknown'  ) + '</span>'
 		                   + (properties.description ? '<p>' + properties.description + '</p>' : '')
-		                   + '</li>');
+		                   + '</div>');
 	}
 });
