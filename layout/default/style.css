@@ -8,8 +8,8 @@ body{ font-size:10px; margin:0; padding:0; font-family:Arial,sans-serif; overflo
 /****************************************************************
  * shared                                                       *
  ****************************************************************/
-.left{ position:fixed; left:0; width:62%; -moz-box-sizing:border-box; padding:0 1.25em 0 5.25em; }
-.right{ position:absolute; right:0; width:38%; -moz-box-sizing:border-box; padding:0 5.25em 0 1.25em; }
+.left{ position:fixed; left:0; width:62%; box-sizing:border-box; padding:0 1.25em 0 5.25em; }
+.right{ position:absolute; right:0; width:38%; box-sizing:border-box; padding:0 5.25em 0 1.25em; }
 
 .areas h2{ font-size:2.3em; font-family:Georgia,serif; font-weight:normal; color:#555555; margin:1em 0 .5em; }
 .areas > div{ padding:1.4em; margin:0 0 2.3em; background:#eee; border:1px solid #ccc; border-radius:.5em; }
