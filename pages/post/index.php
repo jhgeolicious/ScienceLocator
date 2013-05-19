@@ -12,7 +12,7 @@
 	<?php system_body_start(); ?>
 
 	<div class="left"><div id="map"></div></div>
-	<div class="left"><div id="footer">Copyright © 2013 Science Locator. Early prototype by Danijar Hafner. <span id="debug"></span></div></div>
+	<div class="left"><div id="footer">Copyright © <?=date('Y').' '.$config['title']?>. Early prototype by Danijar Hafner. <span id="debug"></span></div></div>
 
 	<div class="right areas" id="side">
 		<h2>Draw an area on the map</h2>

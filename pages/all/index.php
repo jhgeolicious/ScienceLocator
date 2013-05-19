@@ -10,18 +10,16 @@
 </head>
 <body>
 	<?php system_body_start(); ?>
-	<div id="side"><div>
+
+	<div class="left"><div id="map"></div></div>
+	<div class="left"><div id="footer">Copyright © <?=date('Y').' '.$config['title']?>. Early prototype by Danijar Hafner. <span id="debug"></span></div></div>
+	<div class="left"><div id="ads"></div></div>
+
+	<div class="right areas" id="side">
 		<h2>All papers from Science Locator</h2>
-		<ul id="results">
-			<li><br/><br/><br/></li>
-		</ul>
-	</div></div>
-	<div id="middle"><div><div>
-		<div id="ads">&nbsp;</div>
-		<div id="map"></div>
-		<div id="footer">Copyright © 2013 <?=$config['title']?>. Early prototype by Danijar Hafner. <span id="debug"></span></div>
-	</div></div></div>
-	<br class="clear">
+		<div id="results"></div>
+	</div>
+
 	<?php system_body_end(); ?>
 	<script src="<?=$system_page_dir?>/layout.js"           ></script>
 	<script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
