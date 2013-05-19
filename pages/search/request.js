@@ -6,6 +6,8 @@ $(document).ready(function(){
 	
 	var map = map_initialize('map');
 
+	$(document).scroll(function(){ map.invalidateSize(); });
+
 	map_coordinates(map, $('#debug'), 'Mouse at');
 
 	var drawing = map_draw({
