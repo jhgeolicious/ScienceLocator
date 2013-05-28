@@ -26,7 +26,7 @@ input[name=submit]{ float:right; }
 #results div{ font-size:1.5em; display:block; position:relative; padding:.5em 1em; border-top:1px solid #ccc; background:#eee; transition:background .1s; }
 #results div:first-child{ margin-top:-1px; border-top-left-radius:.33em; border-top-right-radius:.33em; }
 #results div:last-child{ border-bottom-left-radius:.33em; border-bottom-right-radius:.33em; }
-#results div:hover{ background:#f8f8f8; border:1px solid #bbb; margin-left:-1px; margin-right:-1px; margin-bottom:-1px; z-index:1; }
+#results div:hover, #results div.selected{ background:#f8f8f8; border:1px solid #bbb; margin-left:-1px; margin-right:-1px; margin-bottom:-1px; z-index:1; }
 #results div > h3{ font-size:1.25em; margin:0; color:#606060; font-weight:normal; /* -moz-user-select:text; */ }
 #results div > a{ color:#23629f; text-decoration:none; }
 #results div > span{ position:absolute; right:.5em; top:.5em; color:#888; }

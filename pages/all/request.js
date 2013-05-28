@@ -1,6 +1,26 @@
 $(document).ready(function(){
 
 	/****************************************************************
+	 * costumization                                                *
+	 ****************************************************************/
+
+	var layerstyle = {
+		color: '#0000ff',
+		weight: 5,
+		opacity: 0.6,
+		fillOpacity: 0.1,
+		fillColor: '#0000ff',
+	};
+
+	var layerstylehover = {
+		color: '#0000ff', 
+		weight: 5,
+		opacity: 0.6,
+		fillOpacity: 0.5,
+		fillColor: '#0000ff',
+	};
+
+	/****************************************************************
 	 * initlialization                                              *
 	 ****************************************************************/
 	
@@ -10,11 +30,21 @@ $(document).ready(function(){
 
 	map_coordinates(map, $('#debug'), 'Mouse at');
 
-	var polygons = L.geoJson(null, {
+	var layers = L.geoJson(null, {
 		onEachFeature: function(feature, layer){
-			layer.bindPopup(feature.properties.title);
+			layer.properties = feature.properties; // attach new member
+			// layer.bindPopup(feature.properties.title);
+			layer.setStyle(layerstyle);
+			layer.on('mouseover', function(){
+				select_result(feature.properties.id, true, false);
+			});
 		},
 	}).addTo(map);
+
+	$(document).on('mouseover', '#results > div', function(){
+		var element = $(this), id = element.attr('tag');
+		select_result(id, false, true);
+	});
 
 	/****************************************************************
 	 * search request                                               *
@@ -30,7 +60,7 @@ $(document).ready(function(){
 		$('#results').html('');
 		for(var i = 0; i < json.features.length; ++i)
 			list_result(json.features[i].properties);
-		polygons.addData(json.features);
+		layers.addData(json.features);
 	}).fail(function(jqxhr){
 		$('#results').html('<h3>The search request failed.</h3>' + '<p>' + jqxhr.responseText + '</p>');
 	}).always(function(){
@@ -49,6 +79,46 @@ $(document).ready(function(){
 		                   + '<span>'     + (properties.date        || 'date unknown'  ) + '</span>'
 		                   + (properties.description ? '<p>' + properties.description + '</p>' : '')
 		                   + '</div>');
+	}
+
+	/****************************************************************
+	 * select result                                                *
+	 ****************************************************************/
+
+	function select_result(id, scroll, shift)
+	{
+		// get layer from id
+		var layer;
+		layers.eachLayer(function(i){
+			if(i.properties.id == id)
+				layer = i;
+		});
+
+		// get element from id
+		var elements = $('#results > div');
+		var element = elements.filter('[tag=' + id + ']');
+
+		// highlight layer
+		layers.setStyle(layerstyle);
+		layer.setStyle(layerstylehover);
+
+		// hightlight element
+		elements.removeClass('selected');
+		element.addClass('selected');
+
+		// shift viewport to layer
+		if(shift || false)
+		{
+			// ...
+		}
+
+		// scroll to element
+		if(scroll || false)
+		{
+			var center = element.offset().top - $(window).height() / 2 + element.outerHeight() / 2;
+			$('html, body').stop().animate({ scrollTop: center }, 700);
+			//$(document).scrollTop(center);
+		}
 	}
 
 });
