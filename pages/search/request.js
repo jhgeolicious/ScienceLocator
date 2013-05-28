@@ -146,9 +146,22 @@ $(document).ready(function(){
 		// scroll to element
 		if(scroll || false)
 		{
-			var center = element.offset().top - $(window).height() / 2 + element.outerHeight() / 2;
-			$('html, body').stop().animate({ scrollTop: center }, 700);
-			//$(document).scrollTop(center);
+			var margin = 10;
+			var top    = element.offset().top - margin,
+			    bottom = element.offset().top + element.outerHeight() + margin - $(window).height();
+
+			if(top < $(document).scrollTop())
+				$('html, body').stop().animate({ scrollTop: top }, 700);
+			else if(bottom > $(document).scrollTop())
+				$('html, body').stop().animate({ scrollTop: bottom }, 700);
+
+			/*
+			 * as alternative to the code above,
+			 * scroll so that selected result is centered
+			 *
+			 * var center = element.offset().top - $(window).height() / 2 + element.outerHeight() / 2;
+			 * $('html, body').stop().animate({ scrollTop: center }, 700);
+			 */
 		}
 	}
 

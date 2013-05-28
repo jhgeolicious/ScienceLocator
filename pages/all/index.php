@@ -20,7 +20,6 @@
 	</div>
 
 	<?php system_body_end(); ?>
-	<script src="<?=$system_page_dir?>/layout.js"                  ></script>
 	<script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
 	<script src="<?=$system_shared_dir?>/map_initialize.js"        ></script>
 	<script src="<?=$system_shared_dir?>/map_draw.js"              ></script>
