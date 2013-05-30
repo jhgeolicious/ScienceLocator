@@ -42,14 +42,14 @@ $(document).ready(function(){
 			// layer.bindPopup(feature.properties.title);
 			layer.setStyle(layerstyle);
 			layer.on('mouseover', function(){
-				select_result(feature.properties.id, true, false);
+				select_result(feature.properties.id, true);
 			});
 		},
 	}).addTo(map);
 
 	$(document).on('mouseover', '#results > div', function(){
 		var element = $(this), id = element.attr('tag');
-		select_result(id, false, true);
+		select_result(id, false);
 	});
 
 	/****************************************************************
@@ -116,7 +116,7 @@ $(document).ready(function(){
 	 * select result                                                *
 	 ****************************************************************/
 
-	function select_result(id, scroll, shift)
+	function select_result(id, scroll)
 	{
 		// get layer from id
 		var layer;
@@ -137,30 +137,6 @@ $(document).ready(function(){
 		elements.removeClass('selected');
 		element.addClass('selected');
 
-		// shift viewport to layer
-		if(shift || false)
-		{
-			/*
-			 * this seems to not work properly
-			 *
-			 * map.panInsideBounds(layer.getBounds());
-			 */
-
-			if(!map.getBounds().contains(layer.getBounds()))
-			{
-				var center = layer.getBounds().getCenter();
-				map.setView(center, map.getZoom(), { animate : true });
-			}
-
-			/*
-			 * as alternative to the code above,
-			 * also zoom to cover the area
-			 *
-			 * var bounds = layer.getBounds();
-			 * map.fitBounds(bounds, { animate : true });
-			 */
-		}
-
 		// scroll to element
 		if(scroll || false)
 		{
@@ -172,15 +148,23 @@ $(document).ready(function(){
 				$('html, body').stop().animate({ scrollTop: top }, 700);
 			else if(bottom > $(document).scrollTop())
 				$('html, body').stop().animate({ scrollTop: bottom }, 700);
-
-			/*
-			 * as alternative to the code above,
-			 * scroll so that selected result is centered
-			 *
-			 * var center = element.offset().top - $(window).height() / 2 + element.outerHeight() / 2;
-			 * $('html, body').stop().animate({ scrollTop: center }, 700);
-			 */
 		}
 	}
+
+	$(document).on('click', '#results > div', function(){
+		// fetch id
+		var element = $(this), id = element.attr('tag');
+
+		// get layer from id
+		var layer;
+		layers.eachLayer(function(i){
+			if(i.properties.id == id)
+				layer = i;
+		});
+
+		// shift viewport to layer
+		var bounds = layer.getBounds();
+		map.fitBounds(bounds, { animate : true });
+	});
 
 });
