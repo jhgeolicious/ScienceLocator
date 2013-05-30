@@ -26,8 +26,6 @@ $(document).ready(function(){
 	
 	var map = map_initialize('map');
 
-	$(document).scroll(function(){ map.invalidateSize(); });
-
 	map_coordinates(map, $('#debug'), 'Mouse at');
 
 	var layers = L.geoJson(null, {
@@ -109,7 +107,10 @@ $(document).ready(function(){
 		// shift viewport to layer
 		if(shift || false)
 		{
-			// ...
+			var bounds = layer.getBounds();
+			map.fitBounds(bounds, { animate : false });
+			//var center = layer.getBounds().getCenter();
+			//map.setView(center);
 		}
 
 		// scroll to element
