@@ -19,7 +19,6 @@ else
 // set variables
 $system_layout_dir = 'layout/' . $config['layout'];
 $system_page_dir = 'pages/' . $page;
-$system_shared_dir = 'shared';
 
 // load layout
 require_once($system_layout_dir . '/index.php');

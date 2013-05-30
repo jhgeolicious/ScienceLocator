@@ -1,6 +1,7 @@
 <?php
 
 $config = array(
+	'dirs'     => array('layout' => 'layout', 'shared' => 'shared', 'plugins' => 'plugins'),
 	'title'    => 'Science Locator',
 	'slogan'   => '„Find research papers by location!“',
 	'layout'   => 'default',

@@ -39,6 +39,17 @@ function system_styles()
 }
 
 /****************************************************************
+ * plugins                                                      *
+ ****************************************************************/
+
+function system_plugin($name)
+{
+	global $config, $system_plugin_dir;
+	$system_plugin_dir = 'plugins/' . $name;
+	require_once($config['dirs']['plugins'] . '/' . $name . '/index.php');
+}
+
+/****************************************************************
  * menu                                                         *
  ****************************************************************/
 
