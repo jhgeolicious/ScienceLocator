@@ -140,7 +140,25 @@ $(document).ready(function(){
 		// shift viewport to layer
 		if(shift || false)
 		{
-			// ...
+			/*
+			 * this seems to not work properly
+			 *
+			 * map.panInsideBounds(layer.getBounds());
+			 */
+
+			if(!map.getBounds().contains(layer.getBounds()))
+			{
+				var center = layer.getBounds().getCenter();
+				map.setView(center, map.getZoom(), { animate : true });
+			}
+
+			/*
+			 * as alternative to the code above,
+			 * also zoom to cover the area
+			 *
+			 * var bounds = layer.getBounds();
+			 * map.fitBounds(bounds, { animate : true });
+			 */
 		}
 
 		// scroll to element
