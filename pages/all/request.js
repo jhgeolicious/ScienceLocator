@@ -30,18 +30,35 @@ $(document).ready(function(){
 
 	var layers = L.geoJson(null, {
 		onEachFeature: function(feature, layer){
-			layer.properties = feature.properties; // attach new member
-			// layer.bindPopup(feature.properties.title);
+			// forward properties to layer
+			layer.properties = feature.properties;
+
+			// set default style
 			layer.setStyle(layerstyle);
+
+			// highlight result on hover
 			layer.on('mouseover', function(){
 				select_result(feature.properties.id, true);
+			});
+
+			// pan layer into view on click
+			layer.on('click', function(){
+				fit_layer(layer);
 			});
 		},
 	}).addTo(map);
 
+	// highlight result on hover
 	$(document).on('mouseover', '#results > div', function(){
 		var element = $(this), id = element.attr('tag');
 		select_result(id, false);
+	});
+
+	// pan layer into view on click
+	$(document).on('click', '#results > div', function(){
+		var id = $(this).attr('tag');
+		var layer = get_layer(id);
+		fit_layer(layer);
 	});
 
 	/****************************************************************
@@ -118,20 +135,24 @@ $(document).ready(function(){
 		}
 	}
 
-	$(document).on('click', '#results > div', function(){
-		// fetch id
-		var element = $(this), id = element.attr('tag');
+	/****************************************************************
+	 * helper functions                                             *
+	 ****************************************************************/
 
-		// get layer from id
+	function get_layer(id)
+	{
 		var layer;
 		layers.eachLayer(function(i){
 			if(i.properties.id == id)
 				layer = i;
 		});
+		return layer;
+	}
 
-		// shift viewport to layer
+	function fit_layer(layer)
+	{
 		var bounds = layer.getBounds();
-		map.fitBounds(bounds, { animate : true });
-	});
+		map.fitBounds(bounds, { animate : true, padding : [20, 20] });
+	}
 
 });
