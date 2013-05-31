@@ -38,19 +38,22 @@ var map_draw = function(options)
 		if(e.keyCode == 27)
 			state(false);
 	});
-
+	
 	// set a point or stop drawing
+	var lasttime = 0;
 	options.map.on('click', function(e) {
 		if(drawing)
 		{
+			var currenttime = (new Date()).getTime();
 			// double click
-			if(public.points[public.points.length - 1] == e.latlng)
+			if(currenttime - lasttime < 250)
 			{
 				state(false);
 			}
 			// single click
 			else
 			{
+				lasttime = currenttime;
 				public.points.push(e.latlng);
 				display(public.points);
 			}
