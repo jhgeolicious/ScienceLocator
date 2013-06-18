@@ -25,7 +25,6 @@
 			<br class="clear"/>
 		</div>
 		<h2>Results on the map and below</h2>
-		<div id="results"></div>
 	</div>
 
 	<?php layout_body_end(); ?>

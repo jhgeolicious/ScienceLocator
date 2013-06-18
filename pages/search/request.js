@@ -82,17 +82,17 @@ $(document).ready(function(){
 							points : points || '',
 						 },
 			cache      : false,
-			beforeSend : function(){ $('#results').addClass('loading'); },
+			beforeSend : function(){ message('').addClass('loading'); },
 		}).done(function(json){
-			$('#results').html('');
+			message('').attr('id', 'results');
 			drawing.hide();
 			for(var i = 0; i < json.features.length; ++i)
 				list_result(json.features[i].properties);
 			layers.addData(json.features);
 		}).fail(function(jqxhr){
-			$('#results').html('<h3>The search request failed.</h3><p>' + jqxhr.responseText + '</p>');
+			message('<h3>The search request failed.</h3><p>' + jqxhr.responseText + '</p>');
 		}).always(function(){
-			$('#results').removeClass('loading');
+			$('.loading').remove();
 		});
 	}
 
@@ -102,6 +102,12 @@ $(document).ready(function(){
 			lnglat_to_array(drawing.points)
 		);
 	});
+
+	function message(text)
+	{
+		$('.message').remove();
+		return $('<div class="message">' + text + '</div>').appendTo('#side');
+	}
 
 	/****************************************************************
 	 * display results                                              *
